@@ -1,0 +1,11 @@
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\bin\Debug\course_work.exe.config
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\bin\Debug\course_work.exe
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\bin\Debug\course_work.pdb
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\bin\Debug\EntityFramework.dll
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\bin\Debug\EntityFramework.xml
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Debug\course_work.csprojResolveAssemblyReference.cache
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Debug\course_work.Form1.resources
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Debug\course_work.Properties.Resources.resources
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Debug\course_work.csproj.GenerateResource.Cache
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Debug\course_work.exe
+c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Debug\course_work.pdb
