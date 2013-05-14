@@ -15,18 +15,17 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace course_work
 {
-    
-    
+   
     public partial class Form1 : Form
     {
-
-     
+        // Принтиране
         private System.Windows.Forms.Button printButton;
         private Font printFont;
         private StreamReader streamToPrint;
-        // EXPERIMENTAL
-        //string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
+
+        // Пътища към файловете с бази данни
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
+        string filePathUsers = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
         
         // ПРОСТОТИИТЕ НА ТАЯ:
         /***
@@ -353,12 +352,14 @@ namespace course_work
 
         }
 
+        // Редактиране, добавяне, изтриване на данни
         private void редактиранеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddEditRemoveEntry editAll = new AddEditRemoveEntry();
             editAll.ShowDialog(this);
         }
 
+        // За нас
         private void заНасToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutUs aboutUs = new AboutUs();
@@ -370,6 +371,7 @@ namespace course_work
             
         }
 
+        // Метод за принтиране
         private void принтиранеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -394,6 +396,7 @@ namespace course_work
                 MessageBox.Show(ex.Message);
             }
         }
+        // Метод за принтиране - страницата
         private void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
             float linesPerPage = 0;
@@ -424,6 +427,8 @@ namespace course_work
             else
                 ev.HasMorePages = false;
         }
+
+        // Метод за принтиране - още
         private void InitializeComponents()
         {
             this.components = new System.ComponentModel.Container();
