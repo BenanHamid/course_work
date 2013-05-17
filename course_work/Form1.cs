@@ -15,7 +15,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace course_work
 {
-   
+
     public partial class Form1 : Form
     {
         // Принтиране
@@ -26,7 +26,7 @@ namespace course_work
         // Пътища към файловете с бази данни
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
         string filePathUsers = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
-        
+
         // ПРОСТОТИИТЕ НА ТАЯ:
         /***
         // За четене/запис
@@ -43,7 +43,7 @@ namespace course_work
         // ГЛАВНИЯТ КОНСТРУКТОР
         public Form1()
         {
-            InitializeComponent();         
+            InitializeComponent();
             //promotionsDataGridView.Columns[0].HeaderText = "First Column";
             //GenerateData();
             //ShowList();
@@ -309,7 +309,7 @@ namespace course_work
 
         private void productsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-         
+
         }
 
         private void productsDataGridView_RowDividerHeightChanged(object sender, DataGridViewRowEventArgs e)
@@ -355,8 +355,11 @@ namespace course_work
         // Редактиране, добавяне, изтриване на данни
         private void редактиранеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEditRemoveEntry editAll = new AddEditRemoveEntry();
+            List<Products> pr = (List<Products>)productsDataGridView.DataSource;
+            AddEditRemoveEntry editAll = new AddEditRemoveEntry(pr);
             editAll.ShowDialog(this);
+            productsDataGridView.DataSource = null;
+            productsDataGridView.DataSource = pr;
         }
 
         // За нас
@@ -368,7 +371,7 @@ namespace course_work
 
         private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         // Метод за принтиране
@@ -451,7 +454,7 @@ namespace course_work
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
     }

@@ -13,9 +13,11 @@ namespace course_work
     public partial class AddEditRemoveEntry : Form
     {
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
-        public AddEditRemoveEntry()
+        public AddEditRemoveEntry(List<Products> pr)
         {
             InitializeComponent();
+            productsBindingSource.DataSource = pr;
+            dataGridView1.DataSource = productsBindingSource;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -25,7 +27,8 @@ namespace course_work
 
         private void AddEditRemoveEntry_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Products.LoadUserListFromFile(filePath);
+            //productsBindingSource.DataSource = Products.LoadUserListFromFile(filePath);
+            //dataGridView1.DataSource = productsBindingSource;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,20 +37,25 @@ namespace course_work
             // dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
             // DataTable dtFromGrid = new DataTable();
             //dtFromGrid = dataGridView1.DataSource as DataTable;
-            try
-            {
-                //BindingList<Products> bindingList = new BindingList<Products>();
-                //dataGridView1.DataSource = bindingList;
-                //bindingList.Remove(
-                dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
-                //
-            }
-            catch
-            {
-                MessageBox.Show("err");
-            }
+            //try
+            //{
+            //BindingList<Products> bindingList = new BindingList<Products>();
+            //dataGridView1.DataSource = bindingList;
+            //bindingList.Remove(
             // dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
-            
+            //
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("err");
+            //}
+            // dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+
+        }
+
+        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        {
+
         }
     }
 }
