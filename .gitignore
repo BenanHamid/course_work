@@ -1,4 +1,4 @@
 ## Игнорирани файлове, за да не стават постоянно безсмислени "Uncommitted changes"
-.cache
-.exe
-.pdb
+*.cache
+*.exe
+*.pdb
