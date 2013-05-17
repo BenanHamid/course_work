@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//using System.Object;
-//using System.IO.File;
 using System.IO;
 
 namespace course_work
