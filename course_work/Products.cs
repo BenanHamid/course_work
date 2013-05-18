@@ -82,8 +82,10 @@ namespace course_work
                     //Balance = Convert.ToDecimal(columns[6])
                 });
             }
+
             // Стойността, която връща тук, се използва във Form1.cs в LoadForm1, и вкарва тези данни в DataGridView
             return loadProductsData;
         }
+
     }
 }

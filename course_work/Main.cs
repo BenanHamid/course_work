@@ -121,6 +121,23 @@ namespace course_work
             // Забраняване на поява на празен ред, който потребителя може да бута в дъното на DGV
             productsDataGridView.AllowUserToAddRows = false;
             promotionsDataGridView.AllowUserToAddRows = false;
+
+            // --- НАЧАЛО СТАТИСТИКИ --- //
+            // Общ брой продукти
+            int totalProductsAmount = productsDataGridView.Rows.Count;
+            label6.Text = Convert.ToString(totalProductsAmount) + " бр";
+            // Общ брой промоции
+            int totalPrmotionsAmount = promotionsDataGridView.Rows.Count;
+            label7.Text = Convert.ToString(totalProductsAmount) + " бр";
+            // Средна цена на продукт
+            int sum = 0;
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value);
+            }
+            sum = sum / totalPrmotionsAmount;
+            label8.Text = sum.ToString() + " лв";
+            // --- КРАЙ СТАТИСТИКИ --- //
         }
 
         // File > Print: Метод за принтиране
@@ -229,6 +246,11 @@ namespace course_work
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
