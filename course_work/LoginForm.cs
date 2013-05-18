@@ -73,7 +73,7 @@ namespace course_work
                         err.SetError(textBox1, ""); //clears the error
                         err.SetError(textBox2, "");
                         MessageBox.Show("Успешен вход в системата!");
-                        Form1 forma = new Form1();
+                        Main forma = new Main();
                         this.Hide();
                         forma.ShowDialog(this);
                         this.Close();

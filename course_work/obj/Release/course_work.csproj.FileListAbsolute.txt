@@ -8,8 +8,8 @@ c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\c
 c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Release\course_work.exe
 c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Release\course_work.pdb
 c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Release\course_work.csprojResolveAssemblyReference.cache
-c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Release\course_work.Form1.resources
 c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Release\course_work.LoginForm.resources
 c:\users\dev-9u5p-j3g2-x4l56\documents\visual studio 2012\Projects\course_work\course_work\obj\Release\course_work.CreateForm.resources
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.AddEditRemoveEntry.resources
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.AboutUs.resources
+C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.Main.resources
