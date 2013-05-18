@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace course_work
 {
-    public partial class CreateForm : Form
+    public partial class CreateNewAccount : Form
     {
 
         // Само проверява за грешки
         ErrorProvider err = new ErrorProvider();
 
-        public CreateForm()
+        public CreateNewAccount()
         {
             InitializeComponent();
         }

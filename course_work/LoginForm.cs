@@ -113,7 +113,7 @@ namespace course_work
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CreateForm create = new CreateForm();
+            CreateNewAccount create = new CreateNewAccount();
             create.ShowDialog(this);
         }
             

@@ -1,6 +1,6 @@
 ﻿namespace course_work
 {
-    partial class CreateForm
+    partial class CreateNewAccount
     {
         /// <summary>
         /// Required designer variable.
