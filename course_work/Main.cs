@@ -156,6 +156,12 @@ namespace course_work
             promotionsDataGridView.AllowUserToAddRows = false;
         }
 
+        // Форматиране на клетките за "Цена" да показват "00,00 лв"
+        public void FormatCurrencyCells()
+        {
+            productsDataGridView.Columns[5].DefaultCellStyle.Format = "c";
+        }
+
         //****************************************************************************************************//
         //                                          НАЧАЛО НА GUI ФУНКЦИИ                                     //
         //****************************************************************************************************//
@@ -167,6 +173,7 @@ namespace course_work
             LoadPromotions();
             LoadStatistics();
             CenterLabels();
+            FormatCurrencyCells();
             ForbidEmptyBottomLine();
         }
 
