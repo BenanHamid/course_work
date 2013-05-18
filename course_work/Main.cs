@@ -114,6 +114,17 @@ namespace course_work
             }
             averageProductPrice = (averageProductPrice / totalProductsAmount);
             label8.Text = averageProductPrice.ToString() + " лв";
+
+            // Средна цена на всички продукти на промоция
+            int averagePromotionPrice = 0;
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                // Събира цените само на промо-продуктите
+                if (Convert.ToInt32(productsDataGridView.Rows[i].Cells[4].Value) > 0)
+                    averagePromotionPrice += Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value);
+            }
+            averagePromotionPrice = (averagePromotionPrice / totalPromotionsAmount);
+            label10.Text = averagePromotionPrice.ToString() + " лв";
         }
 
         // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView
