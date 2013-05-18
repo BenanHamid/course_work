@@ -12,13 +12,13 @@ using course_work.Properties;
 
 namespace course_work
 {
-    public partial class LoginForm : Form
+    public partial class Login : Form
     {
         // Само проверява за грешки
         ErrorProvider err = new ErrorProvider();
 
         // Начало
-        public LoginForm()
+        public Login()
         {
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace course_work
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoginForm LoginForm = new LoginForm();
+            Login LoginForm = new Login();
             
 
             if (Properties.Settings.Default.Remember == true)
