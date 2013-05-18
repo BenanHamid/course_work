@@ -63,11 +63,11 @@
     <Compile Include="AddEditRemoveEntry.Designer.cs">
       <DependentUpon>AddEditRemoveEntry.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateForm.cs">
+    <Compile Include="CreateNewAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateForm.Designer.cs">
-      <DependentUpon>CreateForm.cs</DependentUpon>
+    <Compile Include="CreateNewAccount.Designer.cs">
+      <DependentUpon>CreateNewAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -75,11 +75,11 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -107,14 +107,14 @@
     <EmbeddedResource Include="AddEditRemoveEntry.resx">
       <DependentUpon>AddEditRemoveEntry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateForm.resx">
-      <DependentUpon>CreateForm.cs</DependentUpon>
+    <EmbeddedResource Include="CreateNewAccount.resx">
+      <DependentUpon>CreateNewAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

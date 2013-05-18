@@ -411,16 +411,16 @@ namespace course_work
 
             // Calculate the number of lines per page.
             linesPerPage = ev.MarginBounds.Height /
-               printFont.GetHeight(ev.Graphics);
+            printFont.GetHeight(ev.Graphics);
 
             // Print each line of the file. 
-            while (count < linesPerPage &&
-               ((line = streamToPrint.ReadLine()) != null))
+            while ( count < linesPerPage &&
+                  ( (line = streamToPrint.ReadLine()) != null) )
             {
                 yPos = topMargin + (count *
-                   printFont.GetHeight(ev.Graphics));
+                printFont.GetHeight(ev.Graphics));
                 ev.Graphics.DrawString(line, printFont, Brushes.Black,
-                   leftMargin, yPos, new StringFormat());
+                leftMargin, yPos, new StringFormat());
                 count++;
             }
 
@@ -441,7 +441,7 @@ namespace course_work
             this.Text = "Print Example";
 
             printButton.ImageAlign =
-               System.Drawing.ContentAlignment.MiddleLeft;
+            System.Drawing.ContentAlignment.MiddleLeft;
             printButton.Location = new System.Drawing.Point(32, 110);
             printButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             printButton.TabIndex = 0;
