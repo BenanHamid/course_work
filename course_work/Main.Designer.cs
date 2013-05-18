@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.productsDataGridView = new System.Windows.Forms.DataGridView();
-            this.InventoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.promotionsDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,6 +64,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.InventoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,8 +86,6 @@
             this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promotionsDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -123,19 +123,10 @@
             this.productsDataGridView.Name = "productsDataGridView";
             this.productsDataGridView.RowHeadersVisible = false;
             this.productsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.productsDataGridView.Size = new System.Drawing.Size(574, 147);
+            this.productsDataGridView.Size = new System.Drawing.Size(585, 144);
             this.productsDataGridView.TabIndex = 1;
             this.productsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick);
             this.productsDataGridView.RowDividerHeightChanged += new System.Windows.Forms.DataGridViewRowEventHandler(this.productsDataGridView_RowDividerHeightChanged);
-            // 
-            // InventoryID
-            // 
-            this.InventoryID.DataPropertyName = "InventoryID";
-            this.InventoryID.HeaderText = "Инвентарен №";
-            this.InventoryID.Name = "InventoryID";
-            this.InventoryID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.InventoryID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.InventoryID.Width = 70;
             // 
             // promotionsDataGridView
             // 
@@ -162,7 +153,7 @@
             this.promotionsDataGridView.Name = "promotionsDataGridView";
             this.promotionsDataGridView.RowHeadersVisible = false;
             this.promotionsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.promotionsDataGridView.Size = new System.Drawing.Size(567, 144);
+            this.promotionsDataGridView.Size = new System.Drawing.Size(585, 144);
             this.promotionsDataGridView.TabIndex = 2;
             this.promotionsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.promotionsDataGridView_CellContentClick);
             // 
@@ -479,6 +470,34 @@
             this.groupBox1.Text = "СТАСТИКА";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 72);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(142, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Ср. цена на промоция:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.LightGray;
+            this.label10.Location = new System.Drawing.Point(155, 72);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "label10";
+            // 
+            // InventoryID
+            // 
+            this.InventoryID.DataPropertyName = "InventoryID";
+            this.InventoryID.HeaderText = "Инвентарен №";
+            this.InventoryID.Name = "InventoryID";
+            this.InventoryID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.InventoryID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.InventoryID.Width = 70;
+            // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "Brand";
@@ -596,7 +615,7 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn3.Width = 50;
+            this.dataGridViewTextBoxColumn3.Width = 70;
             // 
             // productsBindingSource3
             // 
@@ -617,25 +636,6 @@
             // form1BindingSource
             // 
             this.form1BindingSource.DataSource = typeof(course_work.Main);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 72);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 13);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Ср. цена на промоция:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.LightGray;
-            this.label10.Location = new System.Drawing.Point(155, 72);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "label10";
             // 
             // Main
             // 
@@ -681,7 +681,6 @@
         private System.Windows.Forms.DataGridView promotionsDataGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryID;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отвориToolStripMenuItem;
@@ -716,12 +715,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.BindingSource productsBindingSource3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
@@ -731,6 +724,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 
     }
 }

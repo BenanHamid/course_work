@@ -159,7 +159,7 @@ namespace course_work
         // Форматиране на клетките за "Цена" да показват "00,00 лв"
         public void FormatCurrencyCells()
         {
-            productsDataGridView.Columns[5].DefaultCellStyle.Format = "c";
+            productsDataGridView.Columns[6].DefaultCellStyle.Format = "c";
         }
 
         //****************************************************************************************************//
