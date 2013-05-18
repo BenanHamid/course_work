@@ -14,12 +14,12 @@ namespace course_work
             get { return discountPrice; }
             set { discountPrice = value; }
         }
-        private int daysLeftPromo;
+        private int discount;
 
-        public int DaysLeftPromo
+        public int Discount
         {
-            get { return daysLeftPromo; }
-            set { daysLeftPromo = value; }
+            get { return discount; }
+            set { discount = value; }
         }
     }
 }

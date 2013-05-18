@@ -621,7 +621,7 @@
             // 
             // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "DaysLeftPromo";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Discount";
             this.dataGridViewTextBoxColumn9.HeaderText = "Отстъпка";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.False;
