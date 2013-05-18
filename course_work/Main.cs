@@ -18,7 +18,9 @@ namespace course_work
 
     public partial class Main : Form
     {
-        // Принтиране
+
+        // --- НАЧАЛО ОБЩИ ДЕФИНИЦИ --- //
+        // За принтиране
         private System.Windows.Forms.Button printButton;
         private Font printFont;
         private StreamReader streamToPrint;
@@ -26,247 +28,15 @@ namespace course_work
         // Пътища към файловете с бази данни
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
         string filePathUsers = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
+        // --- КРАЙ ОБЩИ ДЕФИНИЦИ --- //
 
-        // ПРОСТОТИИТЕ НА ТАЯ:
-        /***
-        // За четене/запис
-        FileStream fs;
-        BinaryFormatter bf = new BinaryFormatter();
-        ***/
-        // Списъка от масиви, който съхванява продуктите
-
-        // ПРОСТОТИИТЕ НА ТАЯ
-        /***
-        ArrayList ListProj = new ArrayList();
-        ***/
-
-        // ГЛАВНИЯТ КОНСТРУКТОР
+        // Най-главният конструктор на цялата форма, който зарежда цялата Вселена
         public Main()
         {
             InitializeComponent();
-            //promotionsDataGridView.Columns[0].HeaderText = "First Column";
-            //GenerateData();
-            //ShowList();
-            //Hope();
-            //ReadFromFile();
-            //Experimental();
-            //Test();
         }
 
-        // НЕЙНИЯ Метод, който генериране данни и ги добавя в DataGridView
-        /***
-        public void GenerateData()
-        {
-            // Генериране на тестови данни. 
-            // Създава файла StudentProjects.dat
-
-            if (!File.Exists(filePath))
-            {
-                int n = 2, gr = 57, days = 7;
-                string mg = "Информатика",
-                       name = "АБВГДЕЖЗИЙКЛМНОПРСТ";
-                Random rndIndex = new Random();
-
-                for (int i = 0; i < 40; i++)
-                {
-                    DateTime d = new DateTime(2013, 04, 10);
-                    DateTime d2 = new DateTime();
-                    if (i > 20 && i < 35)
-                    { 
-                        n = 3; 
-                        gr = 58; 
-                        mg = "Информатика";
-                        d = d.AddDays(5); 
-                        days = 10; 
-                    }
-
-                    if (i > 36)
-                    { 
-                        n = 4;
-                        gr = 58; 
-                        mg = "БИС"; 
-                        d = d.AddDays(7); 
-                        days = 14; 
-                    }
-
-                    if ((3000 + i * 2) % 4 == 0) 
-                        d2 = d.AddDays(days);
-
-                    // Добавяне на стойности към масива
-                    ListProj.Add(new Products
-                    {
-                        Brand = "Test",
-                        Category = "Category",
-                        Description = gr.ToString(),
-                        InventoryID = i,
-                        Price = 2,
-                        Promotions = true,
-                        Quantity = 3
-                    });
-
-                }
-
-                try
-                {
-                    using (fs = new FileStream(filePath, FileMode.Create)) //Гарантира затварянето на потока;
-                        bf.Serialize(fs, ListProj);
-                }
-
-                catch
-                {
-                    MessageBox.Show("Грешка при запис във файл!", "Грешка!");
-                }
-            }
-        }
-        ***/
-
-        // EXPERIMENTAL 1: Това не мога да го накарам да работи!
-        /***
-        public void ReadFromFile()
-        {
-            string delimeter = "\t";
-            string tableName = "BooksTable";
-            string fileName = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "bigtest.sql");
-
-            DataSet dataset = new DataSet();
-            StreamReader sr = new StreamReader(fileName);
-
-            dataset.Tables.Add(tableName);
-            dataset.Tables[tableName].Columns.Add("InventoryID");
-            dataset.Tables[tableName].Columns.Add("Brand");
-            dataset.Tables[tableName].Columns.Add("Category");
-            dataset.Tables[tableName].Columns.Add("Description");
-            dataset.Tables[tableName].Columns.Add("Promotions");
-            dataset.Tables[tableName].Columns.Add("Quantity");
-            dataset.Tables[tableName].Columns.Add("Price");
-
-            string allData = sr.ReadToEnd();
-            string[] rows = allData.Split("\r".ToCharArray());
-
-            foreach (string r in rows)
-            {
-                string[] items = r.Split(delimeter.ToCharArray());
-                dataset.Tables[tableName].Rows.Add(items);
-            }
-            //this.productsDataGridView.DataSource = dataset.Tables[0].DefaultView;
-        }
-        ***/
-
-        // ЕXPERIMENTAL 2: И това не работи!
-        /***
-        public void Experimental()
-        {
-            DataTable table = new DataTable();
-
-            table.Columns.Add("Row No.");
-            table.Columns.Add("Col No.");
-            table.Columns.Add("Width");
-            table.Columns.Add("Height");
-            table.Columns.Add("Image URL");
-            table.Columns.Add("Description");
-            table.Columns.Add("Placeholder");
-
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string[] parts = sr.ReadLine().Split('\t');
-                    table.Rows.Add(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
-                }
-            }
-            productsDataGridView.DataSource = table;
-        }
-        *****/
-
-        // EXPERIMENTAL 3: Дано стане! Ама не стана!
-        /***
-        public void Test()
-        {
-            string[] textData = System.IO.File.ReadAllLines(filePath);
-            string[] headers = textData[0].Split('\t');
-
-            //Create and populate DataTable
-            DataTable dataTable1 = new DataTable();
-
-            foreach (string header in headers)
-                dataTable1.Columns.Add(header, typeof(string), null);
-            for (int i = 1; i < textData.Length; i++)
-                dataTable1.Rows.Add(textData[i].Split('\t'));
-
-            //Set the DataSource of DataGridView to the DataTable
-            promotionsDataGridView.DataSource = dataTable1;
-            //Form1.Controls.Add(productsGridView);
-            //Form1.ShowDialog();
-        }
-        ***/
-
-        // EXPERIMENTAL 4: A New Hope!
-        /***
-        private void Hope()
-        {
-            string rowValue;
-            string[] cellValue;
-
-            if (System.IO.File.Exists(filePath))
-            {
-                System.IO.StreamReader streamReader = new StreamReader(filePath);
-
-                // Reading header
-                rowValue = streamReader.ReadLine();
-                cellValue = rowValue.Split(','); 
-               
-                for (int i = 0; i <= cellValue.Count() - 1; i++)
-                {
-                    DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn();
-                    column.Name = cellValue[i];
-                    column.HeaderText = cellValue[i];
-                    productsDataGridView.Columns.Add(column);
-                }
-
-                // Reading content
-                while (streamReader.Peek() != -1)
-                {
-                    rowValue = streamReader.ReadLine();
-                    cellValue = rowValue.Split(',');
-                    productsDataGridView.Rows.Add(cellValue);
-                }
-
-                streamReader.Close();
-
-            }
-
-            else
-            {
-                MessageBox.Show("No File is Selected");
-            }
-        }
-        ***/
-
-        // Това ПЪЛНИ DataGrid продукти
-        /***
-        public void ShowList()
-        {
-
-            try
-            {
-                if (File.Exists(filePath))
-                {
-                    using (fs = new FileStream(filePath, FileMode.Open))
-                    ListProj = (ArrayList)bf.Deserialize(fs);
-                }
-            }
-
-            catch
-            {
-                MessageBox.Show("Невъзможно е да се отвори файлът база данни, който ще се зареди в productsDataGridView!");
-            }
-            
-            productsDataGridView.DataSource = ListProj;
-
-        }
-        ***/
-
-        // -- Начало методите за принтиране -- //
+        // --- НАЧАЛО НА МЕТОДИТЕ ЗА ПРИНТИРАНЕ --- //
         // Метод за принтиране - страницата
         private void pd_PrintPage(object sender, PrintPageEventArgs ev)
         {
@@ -318,7 +88,7 @@ namespace course_work
 
             this.Controls.Add(printButton);
         }
-        // -- Край на методите за принтиране -- // 
+        /// --- КРАЙ НА МЕТОДИТЕ ЗА ПРИНТИРАНЕ --- //
 
         // Показване на статистиките отдясно
         public void ShowStatistics()
