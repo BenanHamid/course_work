@@ -94,21 +94,26 @@ namespace course_work
         public void LoadStatistics()
         {
             // Общ брой продукти
-            int totalProductsAmount = productsDataGridView.Rows.Count;
+            int totalProductsAmount = productsDataGridView.Rows.Count; // Много яка опция, която ти дава директно броя на редовете
             label6.Text = Convert.ToString(totalProductsAmount) + " бр";
 
             // Общ брой промоции
-            int totalPrmotionsAmount = promotionsDataGridView.Rows.Count;
-            label7.Text = Convert.ToString(totalProductsAmount) + " бр";
+            int totalPromotionsAmount = 0;
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i) // Това е цикъл дето обикаля целия productsDataGridView и гледа дали в колонка промоция (т.е. 4) има >0
+            {
+                if ( Convert.ToInt32(productsDataGridView.Rows[i].Cells[4].Value) > 0)
+                    totalPromotionsAmount++;
+            }
+            label7.Text = Convert.ToString(totalPromotionsAmount) + " бр";
 
-            // Средна цена на продукт
-            int sum = 0;
+            // Средна цена на всички продукти
+            int averageProductPrice = 0;
             for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
             {
-                sum += Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value);
+                averageProductPrice += Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value);
             }
-            sum = sum / totalPrmotionsAmount;
-            label8.Text = sum.ToString() + " лв";
+            averageProductPrice = (averageProductPrice / totalProductsAmount);
+            label8.Text = averageProductPrice.ToString() + " лв";
         }
 
         // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView
