@@ -70,7 +70,7 @@ namespace course_work
                 var columns = line.Split('\t');
                 loadProductsData.Add(new Products
                 {
-                    InventoryID = columns[0],
+                    InventoryID = "BG" + columns[0],
                     Brand = columns[1],
                     Category = columns[2],
                     Description = columns[3],
