@@ -266,6 +266,60 @@ namespace course_work
         }
         ***/
 
+        // -- Начало методите за принтиране -- //
+        // Метод за принтиране - страницата
+        private void pd_PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+            float leftMargin = ev.MarginBounds.Left;
+            float topMargin = ev.MarginBounds.Top;
+            string line = null;
+
+            // Calculate the number of lines per page.
+            linesPerPage = ev.MarginBounds.Height /
+            printFont.GetHeight(ev.Graphics);
+
+            // Print each line of the file. 
+            while (count < linesPerPage &&
+                  ((line = streamToPrint.ReadLine()) != null))
+            {
+                yPos = topMargin + (count *
+                printFont.GetHeight(ev.Graphics));
+                ev.Graphics.DrawString(line, printFont, Brushes.Black, leftMargin, yPos, new StringFormat());
+                count++;
+            }
+
+            // If more lines exist, print another page. 
+            if (line != null)
+                ev.HasMorePages = true;
+            else
+                ev.HasMorePages = false;
+        }
+
+        // Метод за принтиране - още
+        private void InitializeComponents()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.printButton = new System.Windows.Forms.Button();
+
+            this.ClientSize = new System.Drawing.Size(504, 381);
+            this.Text = "Print Example";
+
+            printButton.ImageAlign =
+            System.Drawing.ContentAlignment.MiddleLeft;
+            printButton.Location = new System.Drawing.Point(32, 110);
+            printButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            printButton.TabIndex = 0;
+            printButton.Text = "Print the file.";
+            printButton.Size = new System.Drawing.Size(136, 40);
+            printButton.Click += new System.EventHandler(принтиранеToolStripMenuItem_Click);
+
+            this.Controls.Add(printButton);
+        }
+        // -- Край на методите за принтиране -- // 
+
         // Показване на статистиките отдясно
         public void ShowStatistics()
         {
@@ -278,13 +332,16 @@ namespace course_work
         //****************************************************************************************************//
         //                                          НАЧАЛО НА GUI ФУНКЦИИ                                     //
         //****************************************************************************************************//
+
         // При зареждане на цялата форма
         private void Form1_Load(object sender, EventArgs e)
         {
             // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView
             productsDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
+
             // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView na promotions
             promotionsDataGridView.DataSource = Promotions.LoadUserListFromFile(filePath);
+
             // Центриране на label-ите на двата DataGridView-a
             productsDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             promotionsDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -296,10 +353,59 @@ namespace course_work
             promotionsDataGridView.AllowUserToAddRows = false;
         }
 
-        // File > Exit: Затваряне на програмата при 
+        // File > Print: Метод за принтиране
+        private void принтиранеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                streamToPrint = new StreamReader(filePath);
+
+                try
+                {
+                    printFont = new Font("Arial", 10);
+                    PrintDocument pd = new PrintDocument();
+                    pd.PrintPage += new PrintPageEventHandler(this.pd_PrintPage);
+                    pd.Print();
+                }
+
+                finally
+                {
+                    streamToPrint.Close();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // File > Exit: Затваряне на програмата при клик на "Изход"
         private void затвориToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        // Edit: Редактиране, добавяне, изтриване на данни
+        private void редактиранеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Products> pr = (List<Products>)productsDataGridView.DataSource;
+            AddEditRemoveEntry editAll = new AddEditRemoveEntry(pr);
+            editAll.ShowDialog(this);
+            productsDataGridView.DataSource = null;
+            productsDataGridView.DataSource = pr;
+        }
+
+        // Help > About us: За нас
+        private void заНасToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutUs aboutUs = new AboutUs();
+            aboutUs.ShowDialog(this);
+        }
+
+        private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void promotionsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -352,106 +458,6 @@ namespace course_work
 
         }
 
-        // Редактиране, добавяне, изтриване на данни
-        private void редактиранеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            List<Products> pr = (List<Products>)productsDataGridView.DataSource;
-            AddEditRemoveEntry editAll = new AddEditRemoveEntry(pr);
-            editAll.ShowDialog(this);
-            productsDataGridView.DataSource = null;
-            productsDataGridView.DataSource = pr;
-        }
-
-        // За нас
-        private void заНасToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutUs aboutUs = new AboutUs();
-            aboutUs.ShowDialog(this);
-        }
-
-        private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        // Метод за принтиране
-        private void принтиранеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                streamToPrint = new StreamReader
-                   (filePath);
-                try
-                {
-                    printFont = new Font("Arial", 10);
-                    PrintDocument pd = new PrintDocument();
-                    pd.PrintPage += new PrintPageEventHandler
-                       (this.pd_PrintPage);
-                    pd.Print();
-                }
-                finally
-                {
-                    streamToPrint.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        // Метод за принтиране - страницата
-        private void pd_PrintPage(object sender, PrintPageEventArgs ev)
-        {
-            float linesPerPage = 0;
-            float yPos = 0;
-            int count = 0;
-            float leftMargin = ev.MarginBounds.Left;
-            float topMargin = ev.MarginBounds.Top;
-            string line = null;
-
-            // Calculate the number of lines per page.
-            linesPerPage = ev.MarginBounds.Height /
-            printFont.GetHeight(ev.Graphics);
-
-            // Print each line of the file. 
-            while ( count < linesPerPage &&
-                  ( (line = streamToPrint.ReadLine()) != null) )
-            {
-                yPos = topMargin + (count *
-                printFont.GetHeight(ev.Graphics));
-                ev.Graphics.DrawString(line, printFont, Brushes.Black,
-                leftMargin, yPos, new StringFormat());
-                count++;
-            }
-
-            // If more lines exist, print another page. 
-            if (line != null)
-                ev.HasMorePages = true;
-            else
-                ev.HasMorePages = false;
-        }
-
-        // Метод за принтиране - още
-        private void InitializeComponents()
-        {
-            this.components = new System.ComponentModel.Container();
-            this.printButton = new System.Windows.Forms.Button();
-
-            this.ClientSize = new System.Drawing.Size(504, 381);
-            this.Text = "Print Example";
-
-            printButton.ImageAlign =
-            System.Drawing.ContentAlignment.MiddleLeft;
-            printButton.Location = new System.Drawing.Point(32, 110);
-            printButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            printButton.TabIndex = 0;
-            printButton.Text = "Print the file.";
-            printButton.Size = new System.Drawing.Size(136, 40);
-            printButton.Click += new System.EventHandler(принтиранеToolStripMenuItem_Click);
-
-            this.Controls.Add(printButton);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -459,4 +465,3 @@ namespace course_work
 
     }
 }
-// test
