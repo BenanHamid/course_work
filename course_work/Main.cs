@@ -91,12 +91,53 @@ namespace course_work
         /// --- КРАЙ НА МЕТОДИТЕ ЗА ПРИНТИРАНЕ --- //
 
         // Показване на статистиките отдясно
-        public void ShowStatistics()
+        public void LoadStatistics()
         {
-            // Общо продукти
-            //label6.Text = List.Proj.Count.ToString();   // Общо продукти
-            //label7.Text = List.Proj.Count.ToString();   // Общо промоции
-            //label8.Text = List.Proj.Count.ToString();   // Средна цена на продукт
+            // Общ брой продукти
+            int totalProductsAmount = productsDataGridView.Rows.Count;
+            label6.Text = Convert.ToString(totalProductsAmount) + " бр";
+
+            // Общ брой промоции
+            int totalPrmotionsAmount = promotionsDataGridView.Rows.Count;
+            label7.Text = Convert.ToString(totalProductsAmount) + " бр";
+
+            // Средна цена на продукт
+            int sum = 0;
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value);
+            }
+            sum = sum / totalPrmotionsAmount;
+            label8.Text = sum.ToString() + " лв";
+        }
+
+        // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView
+        public void LoadProducts()
+        {
+            
+            productsDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
+        }
+
+        // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView na promotions
+        public void LoadPromotions()
+        {   
+            promotionsDataGridView.DataSource = Promotions.LoadUserListFromFile(filePath);
+        }
+
+        // Центриране на label-ите на двата DataGridView-a
+        public void CenterLabels()
+        {
+            productsDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            promotionsDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            productsDataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            promotionsDataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        // Забраняване на поява на празен ред, който потребителя може да бута в дъното на DGV
+        public void ForbidEmptyBottomLine()
+        {
+            productsDataGridView.AllowUserToAddRows = false;
+            promotionsDataGridView.AllowUserToAddRows = false;
         }
 
         //****************************************************************************************************//
@@ -106,38 +147,11 @@ namespace course_work
         // При зареждане на цялата форма
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView
-            productsDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
-
-            // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView na promotions
-            promotionsDataGridView.DataSource = Promotions.LoadUserListFromFile(filePath);
-
-            // Центриране на label-ите на двата DataGridView-a
-            productsDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            promotionsDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            productsDataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            promotionsDataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            // Забраняване на поява на празен ред, който потребителя може да бута в дъното на DGV
-            productsDataGridView.AllowUserToAddRows = false;
-            promotionsDataGridView.AllowUserToAddRows = false;
-
-            // --- НАЧАЛО СТАТИСТИКИ --- //
-            // Общ брой продукти
-            int totalProductsAmount = productsDataGridView.Rows.Count;
-            label6.Text = Convert.ToString(totalProductsAmount) + " бр";
-            // Общ брой промоции
-            int totalPrmotionsAmount = promotionsDataGridView.Rows.Count;
-            label7.Text = Convert.ToString(totalProductsAmount) + " бр";
-            // Средна цена на продукт
-            int sum = 0;
-            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
-            {
-                sum += Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value);
-            }
-            sum = sum / totalPrmotionsAmount;
-            label8.Text = sum.ToString() + " лв";
-            // --- КРАЙ СТАТИСТИКИ --- //
+            LoadProducts();
+            LoadPromotions();
+            LoadStatistics();
+            CenterLabels();
+            ForbidEmptyBottomLine();
         }
 
         // File > Print: Метод за принтиране
