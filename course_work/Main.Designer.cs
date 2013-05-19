@@ -570,7 +570,7 @@
             // 
             this.productsBindingSource2.DataSource = typeof(course_work.Products);
             // 
-            // form1BindingSource
+            // mainBindingSource
             // 
             this.mainBindingSource.DataSource = typeof(course_work.Main);
             // 
@@ -608,7 +608,7 @@
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn10.Width = 40;
+            this.dataGridViewTextBoxColumn10.Width = 32;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -617,7 +617,7 @@
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn12.Width = 58;
+            this.dataGridViewTextBoxColumn12.Width = 68;
             // 
             // dataGridViewTextBoxColumn9
             // 
