@@ -156,10 +156,13 @@ namespace course_work
             promotionsDataGridView.AllowUserToAddRows = false;
         }
 
-        // Форматиране на клетките за "Цена" да показват "00,00 лв"
+        // Форматиране на колоните, където има цени да показват "00,00 лв" формат
         public void FormatCurrencyCells()
         {
             productsDataGridView.Columns[6].DefaultCellStyle.Format = "c";
+            promotionsDataGridView.Columns[4].DefaultCellStyle.Format = "c";
+            promotionsDataGridView.Columns[5].DefaultCellStyle.Format = "c";
+            promotionsDataGridView.Columns[6].DefaultCellStyle.Format = "c";
         }
 
         // Калкулиране на промоциите в promotionsDataGridView:
