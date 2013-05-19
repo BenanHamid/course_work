@@ -13,3 +13,19 @@ C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\c
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.CreateNewAccount.resources
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.Login.resources
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.Search.resources
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\course_work.exe.config
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\course_work.exe
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\course_work.pdb
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\EntityFramework.dll
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\EntityFramework.xml
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.csprojResolveAssemblyReference.cache
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.AboutUs.resources
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.AddEditRemoveEntry.resources
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.CreateNewAccount.resources
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.Main.resources
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.Login.resources
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.Properties.Resources.resources
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.Search.resources
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.csproj.GenerateResource.Cache
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.exe
+C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.pdb

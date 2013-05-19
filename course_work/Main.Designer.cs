@@ -667,12 +667,13 @@
             this.dataGridViewTextBoxColumn19});
             this.dataGridView1.DataSource = this.promotionsBindingSource;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(140, 181);
+            this.dataGridView1.Location = new System.Drawing.Point(256, 378);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(585, 144);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.Visible = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridViewTextBoxColumn4
