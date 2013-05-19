@@ -183,6 +183,58 @@ namespace course_work
             }
         }
 
+        //public void Experimental1()
+        //{
+        //    // Отстъпка = 10% от цената
+        //    for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+        //    {
+        //        dataGridView1.DataSource = Products.LoadUserListFromFile(filePath);
+        //        //dataGridView1.Rows[i].Cells[0].Value = productsDataGridView.Rows[i].Cells[1].Value;
+        //        //dataGridView1.Rows[i].Cells[1].Value = productsDataGridView.Rows[i].Cells[2].Value;
+        //        //dataGridView1.Rows[i].Cells[2].Value = productsDataGridView.Rows[i].Cells[3].Value;
+        //        //dataGridView1.Rows[i].Cells[3].Value = productsDataGridView.Rows[i].Cells[5].Value;
+        //        //dataGridView1.Rows[i].Cells[4].Value = productsDataGridView.Rows[i].Cells[6].Value;
+        //        //dataGridView1.Rows[i].Cells[5].Value = productsDataGridView.Rows[i].Cells[6].Value;
+        //        //dataGridView1.Rows[i].Cells[6].Value = productsDataGridView.Rows[i].Cells[6].Value;
+
+        //        dataGridView1.Rows[1].Cells[0].Value = "1";
+        //        dataGridView1.Rows[2].Cells[1].Value = "1";
+        //        dataGridView1.Rows[3].Cells[2].Value = "1";
+        //        dataGridView1.Rows[4].Cells[3].Value = "1";
+        //        dataGridView1.Rows[5].Cells[4].Value = "1";
+        //        dataGridView1.Rows[6].Cells[5].Value = "1";
+        //        dataGridView1.Rows[7].Cells[6].Value = "1";
+        //    }
+
+        //    // Промоционална цена = Цена - Остъпка
+        //    for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+        //    {
+        //        promotionsDataGridView.Rows[i].Cells[6].Value = (Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) -
+        //                                                          Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[5].Value));
+        //    }
+        //}
+
+        public void Experimental2()
+        {
+
+            var dg1 = (from a in productsDataGridView.Rows.Cast<DataGridViewRow>()
+                       select new { Column1 = a.Cells["Column1"].Value.ToString() }).ToList();
+
+            //loop dg1 and save it to datagridview2
+            foreach (var b  in dg1)
+            {
+                dataGridView1.Rows.Add(b.Column1);
+            }
+
+
+        }
+
+        //public void Experimental3()
+        //{
+        //    Products.LoadUserListFromFile(filePath). = "col2 like '2%'";
+        //    dataGridView1.de= "Num = 10"  
+        //}
+
         //****************************************************************************************************//
         //                                          НАЧАЛО НА GUI ФУНКЦИИ                                     //
         //****************************************************************************************************//
@@ -197,6 +249,7 @@ namespace course_work
             FormatCurrencyCells();
             ForbidEmptyBottomLine();
             PromotionCalculate();
+            Experimental3();
         }
 
         // File > Print: Метод за принтиране
@@ -310,6 +363,11 @@ namespace course_work
         }
 
         private void promotionsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
