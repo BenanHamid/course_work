@@ -167,7 +167,7 @@ namespace course_work
         //****************************************************************************************************//
 
         // При зареждане на цялата форма
-        private void Form1_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
             LoadProducts();
             LoadPromotions();

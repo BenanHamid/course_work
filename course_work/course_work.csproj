@@ -112,6 +112,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -144,7 +145,9 @@
     </None>
     <None Include="packages.config" />
     <None Include="Products.cd" />
-    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Products.datasource" />
     <None Include="Properties\DataSources\Promotions.datasource" />
     <None Include="Properties\Settings.settings">
