@@ -187,7 +187,7 @@ namespace course_work
         //                                          НАЧАЛО НА GUI ФУНКЦИИ                                     //
         //****************************************************************************************************//
 
-        // При зареждане на цялата форма
+        // Методи, които се зареждат при зареждане на цялата форма
         private void Main_Load(object sender, EventArgs e)
         {
             LoadProducts();
@@ -254,11 +254,6 @@ namespace course_work
 
         }
 
-        private void promotionsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void productsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -310,6 +305,11 @@ namespace course_work
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void promotionsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
