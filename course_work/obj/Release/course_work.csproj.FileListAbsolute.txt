@@ -13,3 +13,4 @@ C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\c
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.Main.resources
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.CreateNewAccount.resources
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.Login.resources
+C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.Search.resources

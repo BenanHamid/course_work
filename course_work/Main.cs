@@ -214,20 +214,20 @@ namespace course_work
         //    }
         //}
 
-        public void Experimental2()
-        {
+        //public void Experimental2()
+        //{
 
-            var dg1 = (from a in productsDataGridView.Rows.Cast<DataGridViewRow>()
-                       select new { Column1 = a.Cells["Column1"].Value.ToString() }).ToList();
+        //    var dg1 = (from a in productsDataGridView.Rows.Cast<DataGridViewRow>()
+        //               select new { Column1 = a.Cells["Column1"].Value.ToString() }).ToList();
 
-            //loop dg1 and save it to datagridview2
-            foreach (var b  in dg1)
-            {
-                dataGridView1.Rows.Add(b.Column1);
-            }
+        //    //loop dg1 and save it to datagridview2
+        //    foreach (var b  in dg1)
+        //    {
+        //        dataGridView1.Rows.Add(b.Column1);
+        //    }
 
 
-        }
+        //}
 
         //public void Experimental3()
         //{
@@ -249,7 +249,7 @@ namespace course_work
             FormatCurrencyCells();
             ForbidEmptyBottomLine();
             PromotionCalculate();
-            Experimental3();
+            //Experimental3();
         }
 
         // File > Print: Метод за принтиране
