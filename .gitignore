@@ -3,4 +3,4 @@
 *.exe
 *.pdb
 *.suo
-\course_work\bin
+*\course_work\bin
