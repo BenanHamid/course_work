@@ -162,6 +162,24 @@ namespace course_work
             productsDataGridView.Columns[6].DefaultCellStyle.Format = "c";
         }
 
+        // Калкулиране на промоциите в promotionsDataGridView:
+        public void PromotionCalculate()
+        {
+            // Отстъпка = 10% от цената
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                promotionsDataGridView.Rows[i].Cells[5].Value = ( 0.10 * Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) );
+ 
+            }
+
+            // Промоционална цена = Цена - Остъпка
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i) 
+            {
+                promotionsDataGridView.Rows[i].Cells[6].Value = ( Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) - 
+                                                                  Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[5].Value) );
+            }
+        }
+
         //****************************************************************************************************//
         //                                          НАЧАЛО НА GUI ФУНКЦИИ                                     //
         //****************************************************************************************************//
@@ -175,6 +193,7 @@ namespace course_work
             CenterLabels();
             FormatCurrencyCells();
             ForbidEmptyBottomLine();
+            PromotionCalculate();
         }
 
         // File > Print: Метод за принтиране
