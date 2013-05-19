@@ -305,7 +305,7 @@ namespace course_work
 
         private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //To be continued in afterlife
         }
 
         private void productsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -369,6 +369,11 @@ namespace course_work
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void помощToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
