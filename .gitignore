@@ -1,1 +1,6 @@
-
+# Ignored files
+*.cache
+*.exe
+*.pdb
+*.suo
+*\course_work\bin
