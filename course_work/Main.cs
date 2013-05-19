@@ -291,6 +291,7 @@ namespace course_work
             List<Products> pr = (List<Products>)productsDataGridView.DataSource;
             AddEditRemoveEntry editAll = new AddEditRemoveEntry(pr);
             editAll.ShowDialog(this);
+
             productsDataGridView.DataSource = null;
             productsDataGridView.DataSource = pr;
         }
