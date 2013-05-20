@@ -258,6 +258,8 @@ namespace course_work
 
             productsDataGridView.DataSource = null;
             productsDataGridView.DataSource = pr;
+
+            LoadStatistics();
         }
 
         // Help > About us: За нас
