@@ -377,6 +377,7 @@
             this.потребителскаКошницаToolStripMenuItem.Name = "потребителскаКошницаToolStripMenuItem";
             this.потребителскаКошницаToolStripMenuItem.Size = new System.Drawing.Size(157, 20);
             this.потребителскаКошницаToolStripMenuItem.Text = "Потребителска кошница";
+            this.потребителскаКошницаToolStripMenuItem.Click += new System.EventHandler(this.потребителскаКошницаToolStripMenuItem_Click);
             // 
             // помощToolStripMenuItem
             // 

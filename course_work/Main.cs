@@ -294,6 +294,23 @@ namespace course_work
             aboutUs.ShowDialog(this);
         }
 
+        // Search: Търсене
+        private void търсиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Products> pr = (List<Products>)productsDataGridView.DataSource;
+            Search searchIt = new Search(pr);
+            searchIt.ShowDialog(this);
+            productsDataGridView.DataSource = null;
+            productsDataGridView.DataSource = pr;
+        }
+
+        // User Cart: Потребителска кошница
+        private void потребителскаКошницаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cart cart = new Cart();
+            cart.ShowDialog(this);
+        }
+
         private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //To be continued in afterlife
@@ -367,17 +384,6 @@ namespace course_work
         private void помощToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }
-
-        // ТВОИТЕ ИЗСЕРИЩА
-        private void търсиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-            List<Products> pr = (List<Products>)productsDataGridView.DataSource;
-            Search searchIt = new Search(pr);
-            searchIt.ShowDialog(this);
-            productsDataGridView.DataSource = null;
-            productsDataGridView.DataSource = pr;
         }
 
     }
