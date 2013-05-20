@@ -130,9 +130,7 @@ namespace course_work
             int totalStockAmount = 0;
             for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
             {
-                // Събира цените само на промо-продуктите
-                if (Convert.ToInt32(productsDataGridView.Rows[i].Cells[4].Value) > 0)
-                    totalStockAmount = ( totalStockAmount + Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) );
+                totalStockAmount = ( totalStockAmount + Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) );
             }
             label12.Text = totalStockAmount + " бр";
 
