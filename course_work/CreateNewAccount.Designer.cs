@@ -90,9 +90,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateNewAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CreateForm";
+            this.Text = "Създаване на акаунт";
             this.Load += new System.EventHandler(this.CreateForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
