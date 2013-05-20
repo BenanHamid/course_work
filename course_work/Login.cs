@@ -17,7 +17,7 @@ namespace course_work
         // Само проверява за грешки
         ErrorProvider err = new ErrorProvider();
 
-        // Начало
+        // Главен конструктор
         public Login()
         {
             InitializeComponent();
@@ -34,11 +34,12 @@ namespace course_work
             }
         }
 
+        // Бутон "ВЛЕЗ" - Тук са всички проверки за логина
         private void button1_Click(object sender, EventArgs e)
         {
             Login LoginForm = new Login();
             
-
+            // Дефинираме потребителското име и паролата
             if (Properties.Settings.Default.Remember == true)
             {
                 Settings.Default.Password = textBox1.Text;
@@ -46,56 +47,45 @@ namespace course_work
                 Settings.Default.Save();
             }
 
-            // Започване на четене
-
+            // Търси в accounts_db.sql дали има такава комбинация от потребител и парола
             string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
-            
-            
-               
-                StreamReader tr = new StreamReader(filePath);
+            StreamReader tr = new StreamReader(filePath);
+     
+            // Това е същинската проверка дали има валидна комбинация от потребител и парола
+            int flag = 0;
+            while (tr.Peek() >= 0)
+            {
+                string tab = "\t";
+                string user = tr.ReadLine();
+                string getUser = user.Substring(0, user.IndexOf(tab));
+                //MessageBox.Show(getUser);
+                string getPass = user.Substring(user.IndexOf(tab) + 1, user.Length - user.IndexOf(tab) - 1);
+                //MessageBox.Show(getPass);
 
-                // EXPERIMENTAL:
-
-                int flag = 0;
-                while (tr.Peek() >= 0)
+                if (getPass == textBox2.Text && getUser == textBox1.Text)
                 {
-                    string tab = "\t";
-                    string user = tr.ReadLine();
-                    string getUser = user.Substring(0, user.IndexOf(tab));
-                    //MessageBox.Show(getUser);
-                    string getPass = user.Substring(user.IndexOf(tab) + 1, user.Length - user.IndexOf(tab) - 1);
-                    //MessageBox.Show(getPass);
-                    if (getPass == textBox2.Text && getUser == textBox1.Text)
-                    {
-                        flag = 0;
-                        err.SetError(textBox1, ""); //clears the error
-                        err.SetError(textBox2, "");
-                        MessageBox.Show("Успешен вход в системата!");
-                        Main forma = new Main();
-                        this.Hide();
-                        forma.ShowDialog(this);
-                        this.Close();
-                    }
-
-                    
+                    flag = 0;
+                    err.SetError(textBox1, ""); // Чисти error-а
+                    err.SetError(textBox2, "");
+                    MessageBox.Show("Успешен вход в системата!", "Влизане в системата");
+                    Main forma = new Main();
+                    this.Hide();
+                    forma.ShowDialog(this);
+                    this.Close();
                 }
-            if(flag == 0)
-                    {
-                        err.SetError(textBox2, "Грешно въведени данни!");
-                    }
+
             }
-        
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            // Грешна комбинация потребител и парола
+            if(flag == 0)
+            {
+                err.SetError(textBox2, "Невалидна комбинация от потребителско име и парола!");
+                MessageBox.Show("Невалидна комбинация от потребителско име и парола!", "Влизане в системата");
+                Main forma = new Main();
+            }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // Бутон "Remember Me"
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
@@ -109,12 +99,22 @@ namespace course_work
             Settings.Default.Save();
         }
 
+        // Бутон "Направи нов акаунт"
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CreateNewAccount create = new CreateNewAccount();
             create.ShowDialog(this);
         }
-            
+        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+         
+    }
 }
-// test promeni
