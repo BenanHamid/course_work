@@ -46,5 +46,14 @@ namespace course_work
         {
 
         }
+
+        System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.MarqueeAnimationSpeed = 30;
+            progressBar1.Visible = true;
+        }
     }
 }
