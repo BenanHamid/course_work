@@ -240,6 +240,27 @@ namespace course_work
         //****************************************************************************************************//
 
         // Методи, които се зареждат при зареждане на цялата форма
+
+        // 
+
+        // Опит за наследяване от DGV1 към DGV2
+        public void Experimental4()
+        {
+            var results = new List<Products>(); //our new data source with only checked items
+
+            foreach (DataGridViewRow row in productsDataGridView.Rows)
+            {
+               // var check = Convert.ToInt32(row.Cells[4].Value) > 0; //here we check if column is checked
+                if ( Convert.ToInt32(row.Cells[5].Value) > 50 )
+                {
+                    var item = row.DataBoundItem as Products; //get product from row (only when grid is databound!)
+                    results.Add(item);
+                }
+            }
+
+            promotionsDataGridView.DataSource = results; 
+        }
+
         private void Main_Load(object sender, EventArgs e)
         {
             LoadProducts();
