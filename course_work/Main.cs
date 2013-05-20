@@ -256,9 +256,16 @@ namespace course_work
             AddEditRemoveEntry editAll = new AddEditRemoveEntry(pr);
             editAll.ShowDialog(this);
 
+            // Update-ва productsDataGridView във Main
             productsDataGridView.DataSource = null;
             productsDataGridView.DataSource = pr;
 
+            // Update-ва promotionsDataGridView във Main
+            promotionsDataGridView.DataSource = null;
+            promotionsDataGridView.DataSource = pr;
+            FilterPromotions();
+
+            // Update-ва статистиките
             LoadStatistics();
         }
 
@@ -344,6 +351,7 @@ namespace course_work
 
         }
 
+        // ТВОИТЕ ИЗСЕРИЩА
         private void търсиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
