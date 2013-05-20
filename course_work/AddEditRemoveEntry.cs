@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,33 +28,39 @@ namespace course_work
 
         private void AddEditRemoveEntry_Load(object sender, EventArgs e)
         {
+            CenterLabels();
             //productsBindingSource.DataSource = Products.LoadUserListFromFile(filePath);
             //dataGridView1.DataSource = productsBindingSource;
+        }
+        public void CenterLabels()
+        {
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = new BindingList<object>();
-            // dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-            // DataTable dtFromGrid = new DataTable();
-            //dtFromGrid = dataGridView1.DataSource as DataTable;
-            //try
-            //{
-            //BindingList<Products> bindingList = new BindingList<Products>();
-            //dataGridView1.DataSource = bindingList;
-            //bindingList.Remove(
-            // dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
-            //
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("err");
-            //}
-            // dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+
+            TextWriter tw = new StreamWriter(filePath);
+            for (int x = 0; x < dataGridView1.Rows.Count - 1; x++)
+            {
+                for (int y = 0; y < dataGridView1.Columns.Count; y++)
+                {
+                    tw.Write(dataGridView1.Rows[x].Cells[y].Value);
+                    tw.Write('\t');
+                }
+                tw.WriteLine();
+            }
+            tw.Close();
 
         }
 
         private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
 
         }

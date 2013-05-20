@@ -378,5 +378,15 @@ namespace course_work
 
         }
 
+        private void търсиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            List<Products> pr = (List<Products>)productsDataGridView.DataSource;
+            Search searchIt = new Search(pr);
+            searchIt.ShowDialog(this);
+            productsDataGridView.DataSource = null;
+            productsDataGridView.DataSource = pr;
+        }
+
     }
 }

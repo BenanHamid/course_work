@@ -56,8 +56,6 @@ namespace course_work
 
                 // EXPERIMENTAL:
 
-
-
                 int flag = 0;
                 while (tr.Peek() >= 0)
                 {

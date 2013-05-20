@@ -31,22 +31,27 @@ namespace course_work
         //Метод с който търся
         public void Searcher()
         {
-            string lookFor;
-            lookFor = textBox1.Text;
-            int flag = 1, i = 0, y = 0;
+            string searchValue = textBox1.Text;
 
-            for (i = 0; i < dataGridView1.RowCount - 1; i++)
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
             {
-                for (y = 0; y < dataGridView1.Columns.Count; y++)
-                {
-                    if (lookFor == dataGridView1.Rows[i].Cells[y].Value.ToString())
+                
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        MessageBox.Show(dataGridView1.Rows[i].Cells[y].Value.ToString());
+                        if (row.Cells[2].Value.ToString().Equals(searchValue))
+                        {
+                            row.Visible = true;
+                            
+                        }
                     }
-
-                }
-
+                
             }
+            catch 
+            {
+               
+            }
+            
 
         }
 
