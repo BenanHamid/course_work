@@ -18,7 +18,6 @@ C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\course_w
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\course_work.pdb
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\EntityFramework.dll
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\bin\Release\EntityFramework.xml
-C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.csprojResolveAssemblyReference.cache
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.AboutUs.resources
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.AddEditRemoveEntry.resources
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.CreateNewAccount.resources

@@ -32,20 +32,17 @@ namespace course_work
         public void Searcher()
         {
             string searchValue = textBox1.Text;
-
+            
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             try
             {
-                
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (row.Cells[2].Value.ToString().Equals(searchValue))
                         {
-                            row.Visible = true;
-                            
+                            row.Selected = true;
                         }
                     }
-                
             }
             catch 
             {
