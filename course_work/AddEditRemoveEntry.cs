@@ -64,5 +64,10 @@ namespace course_work
         {
 
         }
+
+        private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
