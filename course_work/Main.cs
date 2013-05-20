@@ -165,6 +165,23 @@ namespace course_work
             promotionsDataGridView.Columns[6].DefaultCellStyle.Format = "c";
         }
 
+        // Наследяване от productsDataGridView към promotionsDataGridView чрез филтриране само на промоциите
+        public void FilterPromotions()
+        {
+            var results = new List<Products>();
+
+            foreach (DataGridViewRow row in productsDataGridView.Rows)
+            {
+                if (Convert.ToInt32(row.Cells[4].Value) > 0)
+                {
+                    var item = row.DataBoundItem as Products;
+                    results.Add(item);
+                }
+            }
+
+            promotionsDataGridView.DataSource = results;
+        }
+
         // Калкулиране на промоциите в promotionsDataGridView:
         public void PromotionCalculate()
         {
@@ -172,7 +189,6 @@ namespace course_work
             for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
             {
                 promotionsDataGridView.Rows[i].Cells[5].Value = ( 0.10 * Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) );
- 
             }
 
             // Промоционална цена = Цена - Остъпка
@@ -183,26 +199,10 @@ namespace course_work
             }
         }
 
-         // Наследяване от productsDataGridView към promotionsDataGridView чрез филтриране само на промоциите
-        public void FilterPromotions()
-        {
-            var results = new List<Products>();
-
-            foreach (DataGridViewRow row in productsDataGridView.Rows)
-            {
-                if ( Convert.ToInt32(row.Cells[4].Value) > 0 )
-                {
-                    var item = row.DataBoundItem as Products; 
-                    results.Add(item);
-                }
-            }
-
-            promotionsDataGridView.DataSource = results; 
-        }
-
         //****************************************************************************************************//
         //                                          НАЧАЛО НА GUI ФУНКЦИИ                                     //
         //****************************************************************************************************//
+        
         // Методи, които се зареждат при зареждане на цялата форма
         private void Main_Load(object sender, EventArgs e)
         {
@@ -212,8 +212,8 @@ namespace course_work
             CenterLabels();
             FormatCurrencyCells();
             ForbidEmptyBottomLine();
-            PromotionCalculate();
             FilterPromotions();
+            //PromotionCalculate();
         }
 
         // File > Print: Метод за принтиране
