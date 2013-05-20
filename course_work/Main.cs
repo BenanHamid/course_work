@@ -125,6 +125,24 @@ namespace course_work
             }
             averagePromotionPrice = (averagePromotionPrice / totalPromotionsAmount);
             label10.Text = averagePromotionPrice.ToString() + " лв";
+
+            // Общ брой продукти
+            int totalStockAmount = 0;
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                // Събира цените само на промо-продуктите
+                if (Convert.ToInt32(productsDataGridView.Rows[i].Cells[4].Value) > 0)
+                    totalStockAmount = ( totalStockAmount + Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) );
+            }
+            label12.Text = totalStockAmount + " бр";
+
+            // Общ фирмен капитал
+            int totalMarketPrice = 0;
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                totalMarketPrice = (totalMarketPrice + ( Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) * Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value) ) );
+            }
+            label14.Text = totalMarketPrice + " лв";
         }
 
         // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView
@@ -213,7 +231,7 @@ namespace course_work
             FormatCurrencyCells();
             ForbidEmptyBottomLine();
             FilterPromotions();
-            //PromotionCalculate();
+            //PromotionCalculate(); // EXPERIMENTAL: ВРЕМЕННО КОМЕНТИРАНО ПОНЕЖЕ ПРАВИ ПРОБЛЕМИ
         }
 
         // File > Print: Метод за принтиране
