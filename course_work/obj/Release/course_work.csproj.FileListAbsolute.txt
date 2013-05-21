@@ -28,6 +28,10 @@ C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_w
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.csproj.GenerateResource.Cache
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.exe
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.pdb
+<<<<<<< HEAD
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\bin\Release\course_work.exe.CodeAnalysisLog.xml
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\bin\Release\course_work.exe.lastcodeanalysissucceeded
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.csprojResolveAssemblyReference.cache
+=======
+C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.Cart.resources
+>>>>>>> ff5bdbd21a993cc51f818930972ba3a6ee2fc14b

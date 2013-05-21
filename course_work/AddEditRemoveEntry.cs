@@ -14,6 +14,8 @@ namespace course_work
     public partial class AddEditRemoveEntry : Form
     {
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
+        
+        // Главен конструктор
         public AddEditRemoveEntry(List<Products> pr)
         {
             InitializeComponent();
@@ -21,26 +23,24 @@ namespace course_work
             dataGridView1.DataSource = productsBindingSource;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        // При зареждане на формата
         private void AddEditRemoveEntry_Load(object sender, EventArgs e)
         {
             CenterLabels();
             //productsBindingSource.DataSource = Products.LoadUserListFromFile(filePath);
             //dataGridView1.DataSource = productsBindingSource;
         }
+
+        // Центриране на labels
         public void CenterLabels()
         {
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
+        //  Бутон: Записване на промените във файла с базата данни
         private void button1_Click(object sender, EventArgs e)
         {
-
             TextWriter tw = new StreamWriter(filePath);
             for (int x = 0; x < dataGridView1.Rows.Count - 1; x++)
             {
@@ -52,15 +52,27 @@ namespace course_work
                 tw.WriteLine();
             }
             tw.Close();
-
         }
 
+        //****************************************************************************************************//
+        //                                          ПРАЗНИ МЕТОДИ                                             //
+        //****************************************************************************************************//
         private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
         {
 
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

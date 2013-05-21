@@ -94,9 +94,9 @@ namespace course_work
         public void LoadStatistics()
         {
             // Общ брой продукти
-            int totalProductsAmount = productsDataGridView.Rows.Count; // Много яка опция, която ти дава директно броя на редовете
-            label6.Text = Convert.ToString(totalProductsAmount) + " бр";
-
+            int totalProductsAmount = productsDataGridView.Rows.Count;   // Много яка опция, която ти дава директно броя на редовете
+            label6.Text = Convert.ToString(totalProductsAmount) + " бр"; // И ДА ЗНАЕТЕ, ЧЕ СЪМ ДАЛ ТОЗИ КОД НА ПОНЕ 3 КОЛЕГИ, И ЧЕ НИЕ БЯХМЕ ПЪРВИТЕ, КОИТО НАИСТИНА САМИ СИ ГО ОТКРИХА И НАПИСАХА...
+                                                                         // Но какво да се прави... нали сме колеги... трябва да си "помагаме"...
             // Общ брой промоции
             int totalPromotionsAmount = 0;
             for (int i = 0; i < productsDataGridView.Rows.Count; ++i) // Това е цикъл дето обикаля целия productsDataGridView и гледа дали в колонка промоция (т.е. 4) има >0
@@ -125,6 +125,22 @@ namespace course_work
             }
             averagePromotionPrice = (averagePromotionPrice / totalPromotionsAmount);
             label10.Text = averagePromotionPrice.ToString() + " лв";
+
+            // Общ брой продукти
+            int totalStockAmount = 0;
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                totalStockAmount = ( totalStockAmount + Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) );
+            }
+            label12.Text = totalStockAmount + " бр";
+
+            // Общ фирмен капитал
+            int totalMarketPrice = 0;
+            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            {
+                totalMarketPrice = (totalMarketPrice + ( Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) * Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value) ) );
+            }
+            label14.Text = totalMarketPrice + " лв";
         }
 
         // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView
@@ -186,15 +202,15 @@ namespace course_work
         public void PromotionCalculate()
         {
             // Отстъпка = 10% от цената
-            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            for (int i = 0; i < promotionsDataGridView.Rows.Count; ++i)
             {
                 promotionsDataGridView.Rows[i].Cells[5].Value = ( 0.10 * Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) );
             }
 
             // Промоционална цена = Цена - Остъпка
-            for (int i = 0; i < productsDataGridView.Rows.Count; ++i) 
+            for (int i = 0; i < promotionsDataGridView.Rows.Count; ++i)
             {
-                promotionsDataGridView.Rows[i].Cells[6].Value = ( Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) - 
+                promotionsDataGridView.Rows[i].Cells[6].Value = ( Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) -
                                                                   Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[5].Value) );
             }
         }
@@ -213,7 +229,7 @@ namespace course_work
             FormatCurrencyCells();
             ForbidEmptyBottomLine();
             FilterPromotions();
-            //PromotionCalculate();
+            PromotionCalculate();
         }
 
         // File > Print: Метод за принтиране
@@ -256,9 +272,17 @@ namespace course_work
             AddEditRemoveEntry editAll = new AddEditRemoveEntry(pr);
             editAll.ShowDialog(this);
 
+            // Update-ва productsDataGridView във Main
             productsDataGridView.DataSource = null;
             productsDataGridView.DataSource = pr;
 
+            // Update-ва promotionsDataGridView във Main
+            promotionsDataGridView.DataSource = null;
+            promotionsDataGridView.DataSource = pr;
+            FilterPromotions();
+            PromotionCalculate();
+
+            // Update-ва статистиките
             LoadStatistics();
         }
 
@@ -269,10 +293,31 @@ namespace course_work
             aboutUs.ShowDialog(this);
         }
 
+        // Search: Търсене
+        private void търсиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Products> pr = (List<Products>)productsDataGridView.DataSource;
+            Search searchIt = new Search(pr);
+            searchIt.ShowDialog(this);
+            productsDataGridView.DataSource = null;
+            productsDataGridView.DataSource = pr;
+        }
+
+        // User Cart: Потребителска кошница
+        private void потребителскаКошницаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cart cart = new Cart();
+            cart.ShowDialog(this);
+        }
+
         private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //To be continued in afterlife
         }
+
+        //****************************************************************************************************//
+        //                                          ПРАЗНИ МЕТОДИ                                             //
+        //****************************************************************************************************//
 
         private void productsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -342,16 +387,6 @@ namespace course_work
         private void помощToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void търсиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-            List<Products> pr = (List<Products>)productsDataGridView.DataSource;
-            Search searchIt = new Search(pr);
-            searchIt.ShowDialog(this);
-            productsDataGridView.DataSource = null;
-            productsDataGridView.DataSource = pr;
         }
 
     }
