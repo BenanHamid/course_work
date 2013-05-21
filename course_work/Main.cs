@@ -202,15 +202,15 @@ namespace course_work
         public void PromotionCalculate()
         {
             // Отстъпка = 10% от цената
-            for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
+            for (int i = 0; i < promotionsDataGridView.Rows.Count; ++i)
             {
                 promotionsDataGridView.Rows[i].Cells[5].Value = ( 0.10 * Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) );
             }
 
             // Промоционална цена = Цена - Остъпка
-            for (int i = 0; i < productsDataGridView.Rows.Count; ++i) 
+            for (int i = 0; i < promotionsDataGridView.Rows.Count; ++i)
             {
-                promotionsDataGridView.Rows[i].Cells[6].Value = ( Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) - 
+                promotionsDataGridView.Rows[i].Cells[6].Value = ( Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) -
                                                                   Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[5].Value) );
             }
         }
@@ -229,7 +229,7 @@ namespace course_work
             FormatCurrencyCells();
             ForbidEmptyBottomLine();
             FilterPromotions();
-            //PromotionCalculate(); // EXPERIMENTAL: ВРЕМЕННО КОМЕНТИРАНО ПОНЕЖЕ ПРАВИ ПРОБЛЕМИ
+            PromotionCalculate();
         }
 
         // File > Print: Метод за принтиране
