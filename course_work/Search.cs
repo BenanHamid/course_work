@@ -28,7 +28,42 @@ namespace course_work
         {
 
         }
-        //Метод с който търся
+        public void SearchMe()
+        {
+            var results = new List<Products>();
+            string searchValue = textBox1.Text;
+            try
+            {
+               /* for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    for (int y = 0; y < dataGridView1.Columns.Count; y++)
+                    {*/
+                        
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            if (row.Cells[2].Value.ToString().Equals(searchValue))
+                            {
+                                var item = row.DataBoundItem as Products;
+                                results.Add(item);
+                                dataGridView1.DataSource = results;
+                            }
+                            else
+                            {
+                                dataGridView1.DataSource = productsBindingSource;
+                            }
+                        //}
+                    //}
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Няма намерени данни !");
+            }
+
+            
+            
+        }
+        //Метод с който търся в момента не бачка
         public void Searcher()
         {
             string searchValue = textBox1.Text;
@@ -46,7 +81,7 @@ namespace course_work
             }
             catch 
             {
-               
+                MessageBox.Show("Няма намерени данни !");
             }
             
 
@@ -60,7 +95,8 @@ namespace course_work
         private void button1_Click(object sender, EventArgs e)
         {
             //Викам метода за търсенето
-            Searcher();
+            SearchMe();
+
 
         }
 
