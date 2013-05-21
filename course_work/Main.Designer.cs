@@ -65,12 +65,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -490,6 +490,44 @@
             this.groupBox1.Text = "СТАСТИКА";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.LightGray;
+            this.label14.Location = new System.Drawing.Point(135, 100);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 13);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "label14";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(11, 100);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(120, 13);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Пазарна стойност:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.LightGray;
+            this.label12.Location = new System.Drawing.Point(155, 86);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "label12";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(11, 86);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Общ брой стоки:";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -508,44 +546,6 @@
             this.label9.Size = new System.Drawing.Size(142, 13);
             this.label9.TabIndex = 6;
             this.label9.Text = "Ср. цена на промоция:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(11, 86);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 13);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Общ брой стоки:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.LightGray;
-            this.label12.Location = new System.Drawing.Point(155, 86);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 13);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "label12";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(11, 100);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(120, 13);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Пазарна стойност:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.LightGray;
-            this.label14.Location = new System.Drawing.Point(135, 100);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 13);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "label14";
             // 
             // dataGridViewTextBoxColumn11
             // 

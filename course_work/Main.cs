@@ -94,9 +94,9 @@ namespace course_work
         public void LoadStatistics()
         {
             // Общ брой продукти
-            int totalProductsAmount = productsDataGridView.Rows.Count; // Много яка опция, която ти дава директно броя на редовете
-            label6.Text = Convert.ToString(totalProductsAmount) + " бр";
-
+            int totalProductsAmount = productsDataGridView.Rows.Count;   // Много яка опция, която ти дава директно броя на редовете
+            label6.Text = Convert.ToString(totalProductsAmount) + " бр"; // И ДА ЗНАЕТЕ, ЧЕ СЪМ ДАЛ ТОЗИ КОД НА ПОНЕ 3 КОЛЕГИ, И ЧЕ НИЕ БЯХМЕ ПЪРВИТЕ, КОИТО НАИСТИНА САМИ СИ ГО ОТКРИХА И НАПИСАХА...
+                                                                         // Но какво да се прави... нали сме колеги... трябва да си "помагаме"...
             // Общ брой промоции
             int totalPromotionsAmount = 0;
             for (int i = 0; i < productsDataGridView.Rows.Count; ++i) // Това е цикъл дето обикаля целия productsDataGridView и гледа дали в колонка промоция (т.е. 4) има >0
@@ -280,6 +280,7 @@ namespace course_work
             promotionsDataGridView.DataSource = null;
             promotionsDataGridView.DataSource = pr;
             FilterPromotions();
+            PromotionCalculate();
 
             // Update-ва статистиките
             LoadStatistics();
@@ -313,6 +314,10 @@ namespace course_work
         {
             //To be continued in afterlife
         }
+
+        //****************************************************************************************************//
+        //                                          ПРАЗНИ МЕТОДИ                                             //
+        //****************************************************************************************************//
 
         private void productsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
