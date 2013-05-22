@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.ComponentModel;
 
 namespace course_work
 {
@@ -63,7 +64,7 @@ namespace course_work
         // Четене на данните от products_db.sql и импортирането им в DataGridView
         public static List<Products> LoadUserListFromFile(string filePath)
         {
-            var loadProductsData = new List<Products>();
+            List<Products> loadProductsData = new List<Products>();
 
             foreach (var line in File.ReadAllLines(filePath))
             {
