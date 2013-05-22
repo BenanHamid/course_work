@@ -32,6 +32,7 @@ namespace course_work
             //productsBindingSource.DataSource = Products.LoadUserListFromFile(filePath);
             //dataGridView1.DataSource = productsBindingSource;
         }
+
         //validator za kletkite proverqva dali ima ne6to v tqh i ne te puska napred ako ne go izpulni6
         /*public void Validator()
         {
