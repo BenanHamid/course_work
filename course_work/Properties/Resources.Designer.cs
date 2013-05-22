@@ -59,15 +59,5 @@ namespace course_work.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _252080_224910967535440_4677294_n {
-            get {
-                object obj = ResourceManager.GetObject("252080_224910967535440_4677294_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
