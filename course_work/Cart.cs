@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,9 @@ namespace course_work
 
         // Пътища към файловете с бази данни
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
-        string filePathUsers = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
-        
+        string filePathOrders = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "orders_db.sql");
+      
+
         // Инициализация
         public Cart()
         {
@@ -69,9 +71,76 @@ namespace course_work
             buyDataGridView.Columns[4].DefaultCellStyle.Format = "c";
         }
 
-        // Loading bar
+        // Метод, който проверява дали потребителя е приел условията за поръчка
+        public bool CheckUserAcceptTOS()
+        {
+            bool userAcceptTOS = false;
+            if (checkBox1.Checked)
+                userAcceptTOS = true;
+            return userAcceptTOS;
+        }
+
+        // Save / Loading bar
         private void button1_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                // Проверяваме дали потребителя е приел условията за използване
+                CheckUserAcceptTOS();
+                if (CheckUserAcceptTOS() == false)
+                {
+                    MessageBox.Show("Не сте приели условията за обслужване!");
+                }
+
+                // Запазваме данните на потребителя
+                string name = textBox1.Text;
+                string family = textBox2.Text;
+                string subjectType = Convert.ToString(comboBox1.Items[this.comboBox1.SelectedIndex]);
+                string ID = textBox3.Text;
+                string city = Convert.ToString(comboBox3.Items[this.comboBox1.SelectedIndex]);
+                string address = textBox4.Text;
+                string telephone = textBox5.Text;
+                string paymentMethod = "";
+                if (radioButton1.Checked)
+                    paymentMethod = "Наложен платеж";
+                if (radioButton2.Checked)
+                    paymentMethod = " Банков път";
+
+                // Записваме данние на потребителя във orders_db.sql
+                TextWriter tw = new StreamWriter(filePathOrders);
+                {
+                    tw.Write(name);
+                    tw.Write('\t');
+                    tw.Write(family);
+                    tw.Write('\t');
+                    tw.Write(subjectType);
+                    tw.Write('\t');
+                    tw.Write(ID);
+                    tw.Write('\t');
+                    tw.Write(city);
+                    tw.Write('\t');
+                    tw.Write(address);
+                    tw.Write('\t');
+                    tw.Write(telephone);
+                    tw.Write('\t');
+                    tw.Write(paymentMethod);
+                }
+                tw.WriteLine();
+                tw.Close();
+
+                if (CheckUserAcceptTOS() == true)
+                {
+                    MessageBox.Show("Поръчката ви беше изпратена успешно!");
+                }
+            }
+            catch
+            {
+                CheckUserAcceptTOS();
+                if (CheckUserAcceptTOS() == true)
+                MessageBox.Show("Неуспешен запис на данните");
+            }
+
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 30;
             progressBar1.Visible = true;

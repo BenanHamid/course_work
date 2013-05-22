@@ -50,14 +50,14 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.buyDataGridView = new System.Windows.Forms.DataGridView();
-            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Buy = new System.Windows.Forms.DataGridViewButtonColumn();
             this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.promotionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Buy = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.buyDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
@@ -375,13 +375,17 @@
             this.buyDataGridView.TabIndex = 21;
             this.buyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick_1);
             // 
-            // productsBindingSource1
+            // Buy
             // 
-            this.productsBindingSource1.DataSource = typeof(course_work.Products);
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataSource = typeof(course_work.Products);
+            this.Buy.HeaderText = "Изберете продукти за покупка";
+            this.Buy.Name = "Buy";
+            this.Buy.ReadOnly = true;
+            this.Buy.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Buy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Buy.Text = "Добави в кошница";
+            this.Buy.ToolTipText = "Добавете този продукт във вашата кошница!";
+            this.Buy.UseColumnTextForButtonValue = true;
+            this.Buy.Width = 140;
             // 
             // brandDataGridViewTextBoxColumn
             // 
@@ -429,17 +433,13 @@
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Width = 70;
             // 
-            // Buy
+            // productsBindingSource1
             // 
-            this.Buy.HeaderText = "Изберете продукти за покупка";
-            this.Buy.Name = "Buy";
-            this.Buy.ReadOnly = true;
-            this.Buy.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Buy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Buy.Text = "Добави в кошница";
-            this.Buy.ToolTipText = "Добавете този продукт във вашата кошница!";
-            this.Buy.UseColumnTextForButtonValue = true;
-            this.Buy.Width = 140;
+            this.productsBindingSource1.DataSource = typeof(course_work.Products);
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataSource = typeof(course_work.Products);
             // 
             // Cart
             // 
