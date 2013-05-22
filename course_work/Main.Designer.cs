@@ -413,7 +413,7 @@
             this.низходящРедToolStripMenuItem,
             this.възходящРедToolStripMenuItem});
             this.имеToolStripMenuItem.Name = "имеToolStripMenuItem";
-            this.имеToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.имеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.имеToolStripMenuItem.Text = "По име";
             // 
             // низходящРедToolStripMenuItem
@@ -423,6 +423,7 @@
             this.низходящРедToolStripMenuItem.Name = "низходящРедToolStripMenuItem";
             this.низходящРедToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.низходящРедToolStripMenuItem.Text = "Низходящ ред";
+            this.низходящРедToolStripMenuItem.Click += new System.EventHandler(this.низходящРедToolStripMenuItem_Click);
             // 
             // възходящРедToolStripMenuItem
             // 
@@ -440,7 +441,7 @@
             this.възходящРедToolStripMenuItem1});
             this.маркаToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.маркаToolStripMenuItem.Name = "маркаToolStripMenuItem";
-            this.маркаToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.маркаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.маркаToolStripMenuItem.Text = "По марка";
             // 
             // низходящРедToolStripMenuItem1
@@ -467,7 +468,7 @@
             this.възходящРедToolStripMenuItem2});
             this.ценаToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ценаToolStripMenuItem.Name = "ценаToolStripMenuItem";
-            this.ценаToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.ценаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ценаToolStripMenuItem.Text = "По цена";
             // 
             // низходящРедToolStripMenuItem2
@@ -491,7 +492,7 @@
             this.категорияToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.категорияToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.категорияToolStripMenuItem.Name = "категорияToolStripMenuItem";
-            this.категорияToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.категорияToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.категорияToolStripMenuItem.Text = "По категория";
             // 
             // потребителскаКошницаToolStripMenuItem

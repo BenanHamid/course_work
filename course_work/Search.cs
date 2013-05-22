@@ -28,43 +28,42 @@ namespace course_work
         {
 
         }
+        //
         public void SearchMe()
         {
             var results = new List<Products>();
             string searchValue = textBox1.Text;
+            int flag = 1;
             try
             {
-               /* for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    for (int y = 0; y < dataGridView1.Columns.Count; y++)
-                    {*/
-                        
-                        foreach (DataGridViewRow row in dataGridView1.Rows)
-                        {
-                            if (row.Cells[2].Value.ToString().Equals(searchValue))
-                            {
-                                var item = row.DataBoundItem as Products;
-                                results.Add(item);
-                                dataGridView1.DataSource = results;
-                            }
-                            else
-                            {
-                                dataGridView1.DataSource = productsBindingSource;
-                            }
-                        //}
-                    //}
+                    if (row.Cells[2].Value.ToString().Equals(searchValue) || row.Cells[5].Value.ToString().Equals(searchValue))
+                    {
+                        var item = row.DataBoundItem as Products;
+                        results.Add(item);
+                        flag = 0;
+                        //textBox1.Text = "";
+                    }
                 }
+
             }
             catch
             {
-                MessageBox.Show("Няма намерени данни !");
+                if (flag == 1)
+                {
+                    MessageBox.Show("Няма намерени данни");
+                    textBox1.Text = "";
+                }
             }
 
-            
-            
+            dataGridView1.DataSource = results;
         }
+
+
+
         //Метод с който търся в момента не бачка
-        public void Searcher()
+        /*public void Searcher()
         {
             string searchValue = textBox1.Text;
             
@@ -85,7 +84,7 @@ namespace course_work
             }
             
 
-        }
+        }*/
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -103,6 +102,12 @@ namespace course_work
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = productsBindingSource;
+            textBox1.Text = "";
         }
     }
 }
