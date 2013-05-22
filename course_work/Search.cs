@@ -38,7 +38,8 @@ namespace course_work
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    if (row.Cells[2].Value.ToString().Equals(searchValue) || row.Cells[5].Value.ToString().Equals(searchValue))
+                    if (row.Cells[1].Value.ToString().Equals(searchValue) || row.Cells[2].Value.ToString().Equals(searchValue)
+                        || row.Cells[3].Value.ToString().Equals(searchValue))
                     {
                         var item = row.DataBoundItem as Products;
                         results.Add(item);
@@ -104,7 +105,7 @@ namespace course_work
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             dataGridView1.DataSource = productsBindingSource;
             textBox1.Text = "";

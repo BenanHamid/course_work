@@ -393,13 +393,13 @@ namespace course_work
         {
             // productsDataGridView.Columns[0].Name = "First";
             // productsDataGridView.Columns[1].Name = "Last";
-            /* productsDataGridView.Sort(dataGridViewTextBoxColumn6, ListSortDirection.Descending);
-             DataView view = LoadProducts.Tables[0].DefaultView;
+             productsDataGridView.Sort(dataGridViewTextBoxColumn1, ListSortDirection.Descending);
+             /*DataView view = LoadProducts.Tables[0].DefaultView;
              view.Sort = "day ASC, status DESC";
              productsDataGridView.DataSource = view;*/
 
             //productsDataGridView.Sort(name, ListSortDirection.Ascending);
-            MessageBox.Show(productsDataGridView.Columns[1].Name);
+            //MessageBox.Show(productsDataGridView.Columns[1].Name);
             //productsDataGridView.Sort( new RowComparer( SortOrder.Ascending ) );
 
         }
