@@ -27,32 +27,27 @@ namespace course_work
         private void AddEditRemoveEntry_Load(object sender, EventArgs e)
         {
             CenterLabels();
+            Validator();
+
             //productsBindingSource.DataSource = Products.LoadUserListFromFile(filePath);
             //dataGridView1.DataSource = productsBindingSource;
         }
-        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        //validator za kletkite proverqva dali ima ne6to v tqh i ne te puska napred ako ne go izpulni6
+        public void Validator()
         {
-            string headerText =
-                dataGridView1.Columns[e.ColumnIndex].HeaderText;
-
-            // Abort validation if cell is not in the CompanyName column. 
-            if (!headerText.Equals("CompanyName")) return;
-
-            // Confirm that the cell is not empty. 
-            if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
-            {
-                dataGridView1.Rows[e.RowIndex].ErrorText =
-                    "Company Name must not be empty";
-                e.Cancel = true;
-            }
+              //this.dataGridView1.CellValidating += new DataGridViewCellValidatingEventHandler(dataGridView1_CellValidating);
+              
+            /*var results = new List<Products>();
+            int flag = 1;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells[1].Value.ToString().Equals((typeof)int))
+                    { }
+                }*/
         }
-
-        void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            // Clear the row error in case the user presses ESC.   
-            dataGridView1.Rows[e.RowIndex].ErrorText = String.Empty;
-        }
-
+        
+     
+        
         // Центриране на labels
         public void CenterLabels()
         {
@@ -103,6 +98,11 @@ namespace course_work
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bindingNavigator1_RefreshItems_1(object sender, EventArgs e)
         {
 
         }
