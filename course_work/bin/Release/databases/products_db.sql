@@ -18,8 +18,6 @@
 00018	Sweex	USP	Sweex Intelligent 18R	1	13	185	
 00019	Intel	CPU	Intel Core 2 Duo 1.8 GHz	0	23	110	
 00020	ATI	VGA	ATI HD-5600	0	32	180	
-00021	Intel	VGA	Intel HD graphics 4000	0	87	55	
-00022	ASUS	Периферия	ASUS Gamer Mouse	0	13	45	
 00023	LG	Монитор	LG 1915S	1	50	354	
 00024	Samsung	Монитор	Samsung HD 35 inch	0	30	700	
 asdasdas	asdasdas	asdas	asdasd	1	12	232	
