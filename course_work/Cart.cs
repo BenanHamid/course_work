@@ -16,17 +16,25 @@ namespace course_work
         // Пътища към файловете с бази данни
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
         string filePathUsers = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
-
+        
+        // Инициализация
         public Cart()
         {
             InitializeComponent();
-            LoadProducts();
         }
 
+        // Зареждане на формата
+        private void Cart_Load(object sender, EventArgs e)
+        {
+            LoadProducts();
+            ForbidEmptyBottomLine();
+            CenterLabels();
+        }
+
+        // Зареждане на DGV
         public void LoadProducts()
         {
-
-            productsDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
+            buyDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
         }
 
         // Loading bar
@@ -35,6 +43,19 @@ namespace course_work
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 30;
             progressBar1.Visible = true;
+        }
+
+        // Забраняване на поява на празен ред, който потребителя може да бута в дъното на DGV
+        public void ForbidEmptyBottomLine()
+        {
+            buyDataGridView.AllowUserToAddRows = false;
+        }
+
+        // Центриране на label-ите на двата DataGridView-a
+        public void CenterLabels()
+        {
+            buyDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            buyDataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -47,10 +68,6 @@ namespace course_work
 
         }
 
-        private void Cart_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void label7_Click(object sender, EventArgs e)
         {

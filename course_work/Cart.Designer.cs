@@ -49,7 +49,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.productsDataGridView = new System.Windows.Forms.DataGridView();
+            this.buyDataGridView = new System.Windows.Forms.DataGridView();
             this.Buy = new System.Windows.Forms.DataGridViewButtonColumn();
             this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +58,7 @@
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -346,38 +346,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // productsDataGridView
+            // buyDataGridView
             // 
-            this.productsDataGridView.AllowUserToAddRows = false;
-            this.productsDataGridView.AllowUserToDeleteRows = false;
-            this.productsDataGridView.AllowUserToResizeColumns = false;
-            this.productsDataGridView.AllowUserToResizeRows = false;
-            this.productsDataGridView.AutoGenerateColumns = false;
-            this.productsDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.productsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.productsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.buyDataGridView.AllowUserToAddRows = false;
+            this.buyDataGridView.AllowUserToDeleteRows = false;
+            this.buyDataGridView.AllowUserToResizeColumns = false;
+            this.buyDataGridView.AllowUserToResizeRows = false;
+            this.buyDataGridView.AutoGenerateColumns = false;
+            this.buyDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.buyDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.buyDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.buyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.buyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.brandDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.promotionsDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.Buy});
-            this.productsDataGridView.DataSource = this.productsBindingSource1;
-            this.productsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.productsDataGridView.Location = new System.Drawing.Point(37, 259);
-            this.productsDataGridView.Name = "productsDataGridView";
-            this.productsDataGridView.RowHeadersVisible = false;
-            this.productsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.productsDataGridView.Size = new System.Drawing.Size(577, 130);
-            this.productsDataGridView.TabIndex = 21;
-            this.productsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick_1);
+            this.buyDataGridView.DataSource = this.productsBindingSource1;
+            this.buyDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.buyDataGridView.Location = new System.Drawing.Point(37, 259);
+            this.buyDataGridView.Name = "buyDataGridView";
+            this.buyDataGridView.RowHeadersVisible = false;
+            this.buyDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.buyDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.buyDataGridView.Size = new System.Drawing.Size(577, 130);
+            this.buyDataGridView.TabIndex = 21;
+            this.buyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick_1);
             // 
             // Buy
             // 
             this.Buy.HeaderText = "Купи";
             this.Buy.Name = "Buy";
+            this.Buy.ReadOnly = true;
             this.Buy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Buy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Buy.Text = "Добави в кошница";
@@ -391,6 +393,7 @@
             this.brandDataGridViewTextBoxColumn.Frozen = true;
             this.brandDataGridViewTextBoxColumn.HeaderText = "Марка";
             this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
             this.brandDataGridViewTextBoxColumn.Width = 60;
             // 
             // categoryDataGridViewTextBoxColumn
@@ -399,6 +402,7 @@
             this.categoryDataGridViewTextBoxColumn.Frozen = true;
             this.categoryDataGridViewTextBoxColumn.HeaderText = "Категория";
             this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
             this.categoryDataGridViewTextBoxColumn.Width = 90;
             // 
             // descriptionDataGridViewTextBoxColumn
@@ -407,6 +411,7 @@
             this.descriptionDataGridViewTextBoxColumn.Frozen = true;
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Описание";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             this.descriptionDataGridViewTextBoxColumn.Width = 160;
             // 
             // promotionsDataGridViewTextBoxColumn
@@ -415,6 +420,7 @@
             this.promotionsDataGridViewTextBoxColumn.Frozen = true;
             this.promotionsDataGridViewTextBoxColumn.HeaderText = "Промоция";
             this.promotionsDataGridViewTextBoxColumn.Name = "promotionsDataGridViewTextBoxColumn";
+            this.promotionsDataGridViewTextBoxColumn.ReadOnly = true;
             this.promotionsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.promotionsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.promotionsDataGridViewTextBoxColumn.Width = 60;
@@ -424,6 +430,7 @@
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             this.priceDataGridViewTextBoxColumn.Width = 50;
             // 
             // productsBindingSource1
@@ -440,7 +447,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(652, 487);
-            this.Controls.Add(this.productsDataGridView);
+            this.Controls.Add(this.buyDataGridView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.progressBar1);
@@ -468,7 +475,7 @@
             this.ShowIcon = false;
             this.Text = "Потребителска кошница";
             this.Load += new System.EventHandler(this.Cart_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -499,7 +506,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource productsBindingSource;
-        private System.Windows.Forms.DataGridView productsDataGridView;
+        private System.Windows.Forms.DataGridView buyDataGridView;
         private System.Windows.Forms.BindingSource productsBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
