@@ -19,12 +19,20 @@ namespace course_work
 
         private void label2_Click(object sender, EventArgs e)
         {
-            label2.Font = new Font(label1.Font, label2.Font.Style | FontStyle.Bold | FontStyle.Underline);
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void AboutUs_Load(object sender, EventArgs e)
+        {
+            Font font = new Font("Times New Roman", 13.0f);
+            this.Font = font;
             label1.Font = new Font(label1.Font, label1.Font.Style | FontStyle.Bold | FontStyle.Underline);
+            label2.Font = new Font(label1.Font, label2.Font.Style | FontStyle.Bold | FontStyle.Underline);
         }
     }
 }
