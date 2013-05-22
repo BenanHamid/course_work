@@ -34,6 +34,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +42,6 @@
             this.promotionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -112,10 +112,14 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataSource = typeof(course_work.Products);
+            // 
             // inventoryIDDataGridViewTextBoxColumn
             // 
             this.inventoryIDDataGridViewTextBoxColumn.DataPropertyName = "InventoryID";
-            this.inventoryIDDataGridViewTextBoxColumn.HeaderText = "Инвентарен";
+            this.inventoryIDDataGridViewTextBoxColumn.HeaderText = "Инвентарен №";
             this.inventoryIDDataGridViewTextBoxColumn.Name = "inventoryIDDataGridViewTextBoxColumn";
             // 
             // brandDataGridViewTextBoxColumn
@@ -155,10 +159,6 @@
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataSource = typeof(course_work.Products);
             // 
             // Search
             // 

@@ -25,11 +25,12 @@ namespace course_work
         private Font printFont;
         private StreamReader streamToPrint;
 
+
         // Пътища към файловете с бази данни
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
         string filePathUsers = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
         // --- КРАЙ ОБЩИ ДЕФИНИЦИ --- //
-
+        
         // Най-главният конструктор на цялата форма, който зарежда цялата Вселена
         public Main()
         {
@@ -96,12 +97,12 @@ namespace course_work
             // Общ брой продукти
             int totalProductsAmount = productsDataGridView.Rows.Count;   // Много яка опция, която ти дава директно броя на редовете
             label6.Text = Convert.ToString(totalProductsAmount) + " бр"; // И ДА ЗНАЕТЕ, ЧЕ СЪМ ДАЛ ТОЗИ КОД НА ПОНЕ 3 КОЛЕГИ, И ЧЕ НИЕ БЯХМЕ ПЪРВИТЕ, КОИТО НАИСТИНА САМИ СИ ГО ОТКРИХА И НАПИСАХА...
-                                                                         // Но какво да се прави... нали сме колеги... трябва да си "помагаме"...
+            // Но какво да се прави... нали сме колеги... трябва да си "помагаме"...
             // Общ брой промоции
             int totalPromotionsAmount = 0;
             for (int i = 0; i < productsDataGridView.Rows.Count; ++i) // Това е цикъл дето обикаля целия productsDataGridView и гледа дали в колонка промоция (т.е. 4) има >0
             {
-                if ( Convert.ToInt32(productsDataGridView.Rows[i].Cells[4].Value) > 0)
+                if (Convert.ToInt32(productsDataGridView.Rows[i].Cells[4].Value) > 0)
                     totalPromotionsAmount++;
             }
             label7.Text = Convert.ToString(totalPromotionsAmount) + " бр";
@@ -130,7 +131,7 @@ namespace course_work
             int totalStockAmount = 0;
             for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
             {
-                totalStockAmount = ( totalStockAmount + Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) );
+                totalStockAmount = (totalStockAmount + Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value));
             }
             label12.Text = totalStockAmount + " бр";
 
@@ -138,7 +139,7 @@ namespace course_work
             int totalMarketPrice = 0;
             for (int i = 0; i < productsDataGridView.Rows.Count; ++i)
             {
-                totalMarketPrice = (totalMarketPrice + ( Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) * Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value) ) );
+                totalMarketPrice = (totalMarketPrice + (Convert.ToInt32(productsDataGridView.Rows[i].Cells[5].Value) * Convert.ToInt32(productsDataGridView.Rows[i].Cells[6].Value)));
             }
             label14.Text = totalMarketPrice + " лв";
         }
@@ -146,13 +147,13 @@ namespace course_work
         // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView
         public void LoadProducts()
         {
-            
+
             productsDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
         }
 
         // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView na promotions
         public void LoadPromotions()
-        {   
+        {
             promotionsDataGridView.DataSource = Promotions.LoadUserListFromFile(filePath);
         }
 
@@ -204,21 +205,21 @@ namespace course_work
             // Отстъпка = 10% от цената
             for (int i = 0; i < promotionsDataGridView.Rows.Count; ++i)
             {
-                promotionsDataGridView.Rows[i].Cells[5].Value = ( 0.10 * Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) );
+                promotionsDataGridView.Rows[i].Cells[5].Value = (0.10 * Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value));
             }
 
             // Промоционална цена = Цена - Остъпка
             for (int i = 0; i < promotionsDataGridView.Rows.Count; ++i)
             {
-                promotionsDataGridView.Rows[i].Cells[6].Value = ( Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) -
-                                                                  Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[5].Value) );
+                promotionsDataGridView.Rows[i].Cells[6].Value = (Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[4].Value) -
+                                                                  Convert.ToDouble(promotionsDataGridView.Rows[i].Cells[5].Value));
             }
         }
 
         //****************************************************************************************************//
         //                                          НАЧАЛО НА GUI ФУНКЦИИ                                     //
         //****************************************************************************************************//
-        
+
         // Методи, които се зареждат при зареждане на цялата форма
         private void Main_Load(object sender, EventArgs e)
         {
@@ -312,7 +313,7 @@ namespace course_work
 
         private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //To be continued in afterlife
+            
         }
 
         //****************************************************************************************************//
@@ -393,17 +394,39 @@ namespace course_work
         {
             // productsDataGridView.Columns[0].Name = "First";
             // productsDataGridView.Columns[1].Name = "Last";
-             productsDataGridView.Sort(dataGridViewTextBoxColumn1, ListSortDirection.Descending);
-             /*DataView view = LoadProducts.Tables[0].DefaultView;
-             view.Sort = "day ASC, status DESC";
-             productsDataGridView.DataSource = view;*/
 
+            productsDataGridView.Sort(productsDataGridView.Columns[1], ListSortDirection.Ascending);
             //productsDataGridView.Sort(name, ListSortDirection.Ascending);
             //MessageBox.Show(productsDataGridView.Columns[1].Name);
             //productsDataGridView.Sort( new RowComparer( SortOrder.Ascending ) );
-
+           //productsDataGridView.Sort = Sort.Programmatically;
+            //this.productsDataGridView.Columns["dataGridViewTextBoxColumn1"].SortMode = DataGridViewColumnSortMode.Programmatic;
+           // productsDataGridView.Sort(productsDataGridView.Columns[1], ListSortDirection.Ascending);
+           
         }
 
+        private void записToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TextWriter tw = new StreamWriter(filePath);
+                for (int x = 0; x < productsDataGridView.Rows.Count - 1; x++)
+                {
+                    for (int y = 0; y < productsDataGridView.Columns.Count; y++)
+                    {
+                        tw.Write(productsDataGridView.Rows[x].Cells[y].Value);
+                        tw.Write('\t');
+                    }
+                    tw.WriteLine();
+                }
+                tw.Close();
+                MessageBox.Show("Успешен запис на данните");
+            }
+            catch
+            {
+                MessageBox.Show("Неуспешен запис на данните");
+            }
+        }
+        
     }
 }
-//test

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.productsDataGridView = new System.Windows.Forms.DataGridView();
-            this.InventoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.promotionsDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,6 +70,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.InventoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,8 +85,8 @@
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.mainBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -95,8 +95,8 @@
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.promotionsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).BeginInit();
@@ -127,19 +127,11 @@
             this.productsDataGridView.Name = "productsDataGridView";
             this.productsDataGridView.RowHeadersVisible = false;
             this.productsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.productsDataGridView.Size = new System.Drawing.Size(585, 144);
             this.productsDataGridView.TabIndex = 1;
             this.productsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick);
             this.productsDataGridView.RowDividerHeightChanged += new System.Windows.Forms.DataGridViewRowEventHandler(this.productsDataGridView_RowDividerHeightChanged);
-            // 
-            // InventoryID
-            // 
-            this.InventoryID.DataPropertyName = "InventoryID";
-            this.InventoryID.HeaderText = "Инвентарен №";
-            this.InventoryID.Name = "InventoryID";
-            this.InventoryID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.InventoryID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.InventoryID.Width = 70;
             // 
             // promotionsDataGridView
             // 
@@ -228,21 +220,22 @@
             // 
             this.отвориToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.отвориToolStripMenuItem.Name = "отвориToolStripMenuItem";
-            this.отвориToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.отвориToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.отвориToolStripMenuItem.Text = "Отваряне";
             // 
             // записToolStripMenuItem
             // 
             this.записToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.записToolStripMenuItem.Name = "записToolStripMenuItem";
-            this.записToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.записToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.записToolStripMenuItem.Text = "Запис";
+            this.записToolStripMenuItem.Click += new System.EventHandler(this.записToolStripMenuItem_Click);
             // 
             // принтиранеToolStripMenuItem
             // 
             this.принтиранеToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.принтиранеToolStripMenuItem.Name = "принтиранеToolStripMenuItem";
-            this.принтиранеToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.принтиранеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.принтиранеToolStripMenuItem.Text = "Принтиране";
             this.принтиранеToolStripMenuItem.Click += new System.EventHandler(this.принтиранеToolStripMenuItem_Click);
             // 
@@ -250,7 +243,7 @@
             // 
             this.затвориToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.затвориToolStripMenuItem.Name = "затвориToolStripMenuItem";
-            this.затвориToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.затвориToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.затвориToolStripMenuItem.Text = "Изход";
             this.затвориToolStripMenuItem.Click += new System.EventHandler(this.затвориToolStripMenuItem_Click);
             // 
@@ -290,7 +283,7 @@
             this.низходящРедToolStripMenuItem,
             this.възходящРедToolStripMenuItem});
             this.имеToolStripMenuItem.Name = "имеToolStripMenuItem";
-            this.имеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.имеToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.имеToolStripMenuItem.Text = "По име";
             // 
             // низходящРедToolStripMenuItem
@@ -299,6 +292,7 @@
             this.низходящРедToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.низходящРедToolStripMenuItem.Name = "низходящРедToolStripMenuItem";
             this.низходящРедToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.низходящРедToolStripMenuItem.Tag = "";
             this.низходящРедToolStripMenuItem.Text = "Низходящ ред";
             this.низходящРедToolStripMenuItem.Click += new System.EventHandler(this.низходящРедToolStripMenuItem_Click);
             // 
@@ -318,7 +312,7 @@
             this.възходящРедToolStripMenuItem1});
             this.маркаToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.маркаToolStripMenuItem.Name = "маркаToolStripMenuItem";
-            this.маркаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.маркаToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.маркаToolStripMenuItem.Text = "По марка";
             // 
             // низходящРедToolStripMenuItem1
@@ -345,7 +339,7 @@
             this.възходящРедToolStripMenuItem2});
             this.ценаToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ценаToolStripMenuItem.Name = "ценаToolStripMenuItem";
-            this.ценаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ценаToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ценаToolStripMenuItem.Text = "По цена";
             // 
             // низходящРедToolStripMenuItem2
@@ -369,7 +363,7 @@
             this.категорияToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.категорияToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.категорияToolStripMenuItem.Name = "категорияToolStripMenuItem";
-            this.категорияToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.категорияToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.категорияToolStripMenuItem.Text = "По категория";
             // 
             // потребителскаКошницаToolStripMenuItem
@@ -548,6 +542,14 @@
             this.label9.TabIndex = 6;
             this.label9.Text = "Ср. цена на промоция:";
             // 
+            // InventoryID
+            // 
+            this.InventoryID.DataPropertyName = "InventoryID";
+            this.InventoryID.HeaderText = "Инвентарен №";
+            this.InventoryID.Name = "InventoryID";
+            this.InventoryID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.InventoryID.Width = 70;
+            // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "Brand";
@@ -621,7 +623,6 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Марка";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn2.Width = 80;
             // 
             // dataGridViewTextBoxColumn5
@@ -630,7 +631,6 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Категория";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -638,7 +638,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Описание";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn6.Width = 150;
             // 
             // dataGridViewCheckBoxColumn1
@@ -647,6 +646,7 @@
             this.dataGridViewCheckBoxColumn1.HeaderText = "Промоция";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewCheckBoxColumn1.Width = 60;
             // 
             // dataGridViewTextBoxColumn1
@@ -655,7 +655,6 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Брой";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn1.Width = 40;
             // 
             // dataGridViewTextBoxColumn3
@@ -664,16 +663,15 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dataGridViewTextBoxColumn3.Width = 70;
-            // 
-            // productsBindingSource3
-            // 
-            this.productsBindingSource3.DataSource = typeof(course_work.Products);
             // 
             // productsBindingSource
             // 
             this.productsBindingSource.DataSource = typeof(course_work.Products);
+            // 
+            // productsBindingSource3
+            // 
+            this.productsBindingSource3.DataSource = typeof(course_work.Products);
             // 
             // productsBindingSource1
             // 
@@ -716,8 +714,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.promotionsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).EndInit();
@@ -770,13 +768,6 @@
         private System.Windows.Forms.BindingSource productsBindingSource3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
@@ -788,6 +779,13 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 
     }
 }

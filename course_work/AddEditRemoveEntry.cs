@@ -30,6 +30,28 @@ namespace course_work
             //productsBindingSource.DataSource = Products.LoadUserListFromFile(filePath);
             //dataGridView1.DataSource = productsBindingSource;
         }
+        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            string headerText =
+                dataGridView1.Columns[e.ColumnIndex].HeaderText;
+
+            // Abort validation if cell is not in the CompanyName column. 
+            if (!headerText.Equals("CompanyName")) return;
+
+            // Confirm that the cell is not empty. 
+            if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+            {
+                dataGridView1.Rows[e.RowIndex].ErrorText =
+                    "Company Name must not be empty";
+                e.Cancel = true;
+            }
+        }
+
+        void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            // Clear the row error in case the user presses ESC.   
+            dataGridView1.Rows[e.RowIndex].ErrorText = String.Empty;
+        }
 
         // Центриране на labels
         public void CenterLabels()
@@ -41,17 +63,25 @@ namespace course_work
         //  Бутон: Записване на промените във файла с базата данни
         private void button1_Click(object sender, EventArgs e)
         {
-            TextWriter tw = new StreamWriter(filePath);
-            for (int x = 0; x < dataGridView1.Rows.Count - 1; x++)
+            try
             {
-                for (int y = 0; y < dataGridView1.Columns.Count; y++)
+                TextWriter tw = new StreamWriter(filePath);
+                for (int x = 0; x < dataGridView1.Rows.Count - 1; x++)
                 {
-                    tw.Write(dataGridView1.Rows[x].Cells[y].Value);
-                    tw.Write('\t');
+                    for (int y = 0; y < dataGridView1.Columns.Count; y++)
+                    {
+                        tw.Write(dataGridView1.Rows[x].Cells[y].Value);
+                        tw.Write('\t');
+                    }
+                    tw.WriteLine();
                 }
-                tw.WriteLine();
+                tw.Close();
+                MessageBox.Show("Успешен запис на данните");
             }
-            tw.Close();
+            catch
+            {
+                MessageBox.Show("Неуспешен запис на данните");
+            }
         }
 
         //****************************************************************************************************//
