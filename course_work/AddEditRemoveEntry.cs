@@ -53,6 +53,8 @@ namespace course_work
         {
             try
             {
+                /*FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs);*/
                 TextWriter tw = new StreamWriter(filePath);
                 for (int x = 0; x < dataGridView1.Rows.Count - 1; x++)
                 {
