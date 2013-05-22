@@ -26,7 +26,12 @@ namespace course_work
 
         private void Search_Load(object sender, EventArgs e)
         {
-
+            CenterLabels();
+        }
+        public void CenterLabels()
+        {
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         //Метод с който търся
         public void SearchMe()
