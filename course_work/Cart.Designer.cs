@@ -49,23 +49,24 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsDataGridView = new System.Windows.Forms.DataGridView();
-            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.Buy = new System.Windows.Forms.DataGridViewButtonColumn();
             this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.promotionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.promotionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            this.productsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(34, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
@@ -75,6 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(34, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
@@ -84,6 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(34, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
@@ -93,6 +96,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.radioButton1.Location = new System.Drawing.Point(142, 216);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(111, 17);
@@ -105,6 +109,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.radioButton2.Location = new System.Drawing.Point(142, 236);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(99, 17);
@@ -116,6 +121,9 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Физическо лице",
+            "Юридическо лице"});
             this.comboBox1.Location = new System.Drawing.Point(133, 90);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(108, 21);
@@ -124,6 +132,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(34, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
@@ -133,6 +142,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(34, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
@@ -143,6 +153,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(34, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
@@ -153,6 +164,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Location = new System.Drawing.Point(34, 218);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 13);
@@ -163,6 +175,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Location = new System.Drawing.Point(34, 143);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 13);
@@ -200,6 +213,96 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Албена",
+            "Асеновград",
+            "Ахтопол",
+            "Балчик",
+            "Банско",
+            "Батак",
+            "Берковица",
+            "Благоевград",
+            "Ботевград",
+            "Брацигово",
+            "Бургас",
+            "Бяла Слатина",
+            "Варна",
+            "Велико Търново",
+            "Велинград",
+            "Видин",
+            "Враца",
+            "Габрово",
+            "Годеч",
+            "Горна Оряховица",
+            "Гоце Делчев",
+            "Девня",
+            "Димитровград",
+            "ДобричДряново",
+            "Дупница",
+            "Елена",
+            "Елин Пелин",
+            "Елхово",
+            "Етрополе",
+            "Златица",
+            "Златоград",
+            "Исперих",
+            "Ихтиман",
+            "Казанлък",
+            "Карлово",
+            "Козлодуй",
+            "Кубрат",
+            "Кърджали",
+            "Кюстендил",
+            "Ловеч",
+            "Лом",
+            "Мездра",
+            "Мелник",
+            "Монтана",
+            "Несебър",
+            "Нова Загора",
+            "Нови пазар",
+            "Омуртаг",
+            "Оряхово",
+            "Павликени",
+            "Пазарджик",
+            "Панагюрище",
+            "Перник",
+            "Петрич",
+            "Пещера",
+            "Пирдоп",
+            "Плевен",
+            "Пловдив",
+            "Поморие",
+            "Попово",
+            "Правец",
+            "Провадия",
+            "Първомай",
+            "Разград",
+            "Раковски",
+            "Русе",
+            "Сандански",
+            "Свиленград",
+            "Свищов",
+            "Севлиево",
+            "Силистра",
+            "Сливен",
+            "Смолян",
+            "Созопол",
+            "София",
+            "Стамболийски",
+            "Стара Загора",
+            "Стражица",
+            "Стралджа",
+            "Стрелча",
+            "Троян",
+            "Трявна",
+            "Търговище",
+            "Харманли",
+            "Хасково",
+            "Чепеларе",
+            "Чирпан",
+            "Шумен",
+            "Ямбол"});
             this.comboBox3.Location = new System.Drawing.Point(133, 140);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(153, 21);
@@ -214,9 +317,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(88, 493);
+            this.progressBar1.Location = new System.Drawing.Point(36, 459);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(521, 19);
+            this.progressBar1.Size = new System.Drawing.Size(566, 19);
             this.progressBar1.TabIndex = 18;
             this.progressBar1.Visible = false;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
@@ -224,7 +327,8 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(37, 409);
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.checkBox1.Location = new System.Drawing.Point(68, 399);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(503, 17);
             this.checkBox1.TabIndex = 19;
@@ -234,17 +338,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(245, 432);
+            this.button1.Location = new System.Drawing.Point(230, 422);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(175, 27);
             this.button1.TabIndex = 20;
             this.button1.Text = "Изпращане на поръчка";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataSource = typeof(course_work.Products);
             // 
             // productsDataGridView
             // 
@@ -262,63 +362,84 @@
             this.categoryDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.promotionsDataGridViewTextBoxColumn,
-            this.quantityDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn});
+            this.priceDataGridViewTextBoxColumn,
+            this.Buy});
             this.productsDataGridView.DataSource = this.productsBindingSource1;
             this.productsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.productsDataGridView.Location = new System.Drawing.Point(37, 259);
             this.productsDataGridView.Name = "productsDataGridView";
             this.productsDataGridView.RowHeadersVisible = false;
             this.productsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.productsDataGridView.Size = new System.Drawing.Size(585, 144);
+            this.productsDataGridView.Size = new System.Drawing.Size(577, 130);
             this.productsDataGridView.TabIndex = 21;
             this.productsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick_1);
             // 
-            // productsBindingSource1
+            // Buy
             // 
-            this.productsBindingSource1.DataSource = typeof(course_work.Products);
+            this.Buy.HeaderText = "Купи";
+            this.Buy.Name = "Buy";
+            this.Buy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Buy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Buy.Text = "Добави в кошница";
+            this.Buy.ToolTipText = "Добавете този продукт във вашата кошница!";
+            this.Buy.UseColumnTextForButtonValue = true;
+            this.Buy.Width = 140;
             // 
             // brandDataGridViewTextBoxColumn
             // 
             this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            this.brandDataGridViewTextBoxColumn.Frozen = true;
             this.brandDataGridViewTextBoxColumn.HeaderText = "Марка";
             this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            this.brandDataGridViewTextBoxColumn.Width = 60;
             // 
             // categoryDataGridViewTextBoxColumn
             // 
             this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.Frozen = true;
             this.categoryDataGridViewTextBoxColumn.HeaderText = "Категория";
             this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.Width = 90;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Frozen = true;
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Описание";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.Width = 160;
             // 
             // promotionsDataGridViewTextBoxColumn
             // 
             this.promotionsDataGridViewTextBoxColumn.DataPropertyName = "Promotions";
+            this.promotionsDataGridViewTextBoxColumn.Frozen = true;
             this.promotionsDataGridViewTextBoxColumn.HeaderText = "Промоция";
             this.promotionsDataGridViewTextBoxColumn.Name = "promotionsDataGridViewTextBoxColumn";
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Брой";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.promotionsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.promotionsDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.promotionsDataGridViewTextBoxColumn.Width = 60;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // productsBindingSource1
+            // 
+            this.productsBindingSource1.DataSource = typeof(course_work.Products);
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataSource = typeof(course_work.Products);
             // 
             // Cart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 550);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.ClientSize = new System.Drawing.Size(652, 487);
             this.Controls.Add(this.productsDataGridView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
@@ -347,9 +468,9 @@
             this.ShowIcon = false;
             this.Text = "Потребителска кошница";
             this.Load += new System.EventHandler(this.Cart_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,8 +504,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn brandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn promotionsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn promotionsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Buy;
     }
 }
