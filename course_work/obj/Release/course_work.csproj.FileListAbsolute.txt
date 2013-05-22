@@ -30,3 +30,4 @@ C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_w
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.pdb
 C:\Users\JellyMoon\Documents\GitHub\course_work\course_work\obj\Release\course_work.csprojResolveAssemblyReference.cache
 C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.Cart.resources
+C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Release\course_work.csprojResolveAssemblyReference.cache

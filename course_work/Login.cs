@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 using course_work.Properties;
 
 namespace course_work
@@ -98,6 +99,38 @@ namespace course_work
             }
             Settings.Default.Save();
         }
+
+        //// Криптиране със SHA-512
+        public static string GetCrypt(string text)
+        {
+            string hash = "";
+            SHA512 alg = SHA512.Create();
+            byte[] result = alg.ComputeHash(Encoding.UTF8.GetBytes(text));
+            hash = Encoding.UTF8.GetString(result);
+            return hash;
+        }
+
+        // MD5
+        //public static string MD5Hash(string text)
+        //{
+        //    MD5 md5 = new MD5CryptoServiceProvider();
+
+        //    //compute hash from the bytes of text
+        //    md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+
+        //    //get hash result after compute it
+        //    byte[] result = md5.Hash;
+
+        //    StringBuilder strBuilder = new StringBuilder();
+        //    for (int i = 0; i < result.Length; i++)
+        //    {
+        //        //change it into 2 hexadecimal digits
+        //        //for each byte
+        //        strBuilder.Append(result[i].ToString("x2"));
+        //    }
+        //
+        //    return strBuilder.ToString();
+        //}
 
         // Бутон "Направи нов акаунт"
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
