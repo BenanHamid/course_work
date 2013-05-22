@@ -371,7 +371,7 @@
             this.buyDataGridView.RowHeadersVisible = false;
             this.buyDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.buyDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.buyDataGridView.Size = new System.Drawing.Size(577, 130);
+            this.buyDataGridView.Size = new System.Drawing.Size(697, 130);
             this.buyDataGridView.TabIndex = 21;
             this.buyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick_1);
             // 
@@ -431,7 +431,7 @@
             this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Width = 50;
+            this.priceDataGridViewTextBoxColumn.Width = 70;
             // 
             // productsBindingSource1
             // 
