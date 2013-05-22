@@ -27,13 +27,13 @@ namespace course_work
         private void AddEditRemoveEntry_Load(object sender, EventArgs e)
         {
             CenterLabels();
-            Validator();
+           // Validator();
 
             //productsBindingSource.DataSource = Products.LoadUserListFromFile(filePath);
             //dataGridView1.DataSource = productsBindingSource;
         }
         //validator za kletkite proverqva dali ima ne6to v tqh i ne te puska napred ako ne go izpulni6
-        public void Validator()
+        /*public void Validator()
         {
               //this.dataGridView1.CellValidating += new DataGridViewCellValidatingEventHandler(dataGridView1_CellValidating);
               
@@ -43,8 +43,8 @@ namespace course_work
                 {
                     if (row.Cells[1].Value.ToString().Equals((typeof)int))
                     { }
-                }*/
-        }
+                }
+        }*/
         
      
         
