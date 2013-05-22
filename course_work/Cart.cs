@@ -98,17 +98,17 @@ namespace course_work
                 string family = textBox2.Text;
                 string subjectType = Convert.ToString(comboBox1.Items[this.comboBox1.SelectedIndex]);
                 string ID = textBox3.Text;
-                string city = Convert.ToString(comboBox3.Items[this.comboBox1.SelectedIndex]);
+                string city = Convert.ToString(comboBox3.Items[this.comboBox3.SelectedIndex]);
                 string address = textBox4.Text;
                 string telephone = textBox5.Text;
                 string paymentMethod = "";
                 if (radioButton1.Checked)
                     paymentMethod = "Наложен платеж";
                 if (radioButton2.Checked)
-                    paymentMethod = " Банков път";
+                    paymentMethod = "Банков път";
 
                 // Записваме данние на потребителя във orders_db.sql
-                TextWriter tw = new StreamWriter(filePathOrders);
+                TextWriter tw = new StreamWriter(filePathOrders, true);
                 {
                     tw.Write(name);
                     tw.Write('\t');
@@ -125,9 +125,9 @@ namespace course_work
                     tw.Write(telephone);
                     tw.Write('\t');
                     tw.Write(paymentMethod);
+                    tw.WriteLine();
+                    tw.Close();
                 }
-                tw.WriteLine();
-                tw.Close();
 
                 if (CheckUserAcceptTOS() == true)
                 {
