@@ -317,7 +317,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(36, 459);
+            this.progressBar1.Location = new System.Drawing.Point(50, 473);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(566, 19);
             this.progressBar1.TabIndex = 18;
@@ -328,7 +328,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBox1.Location = new System.Drawing.Point(68, 399);
+            this.checkBox1.Location = new System.Drawing.Point(89, 413);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(503, 17);
             this.checkBox1.TabIndex = 19;
@@ -338,7 +338,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(230, 422);
+            this.button1.Location = new System.Drawing.Point(244, 436);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(175, 27);
             this.button1.TabIndex = 20;
@@ -371,13 +371,13 @@
             this.buyDataGridView.RowHeadersVisible = false;
             this.buyDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.buyDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.buyDataGridView.Size = new System.Drawing.Size(577, 130);
+            this.buyDataGridView.Size = new System.Drawing.Size(597, 144);
             this.buyDataGridView.TabIndex = 21;
             this.buyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGridView_CellContentClick_1);
             // 
             // Buy
             // 
-            this.Buy.HeaderText = "Купи";
+            this.Buy.HeaderText = "Изберете продукти за покупка";
             this.Buy.Name = "Buy";
             this.Buy.ReadOnly = true;
             this.Buy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -431,7 +431,7 @@
             this.priceDataGridViewTextBoxColumn.HeaderText = "Цена";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.priceDataGridViewTextBoxColumn.Width = 50;
+            this.priceDataGridViewTextBoxColumn.Width = 70;
             // 
             // productsBindingSource1
             // 
@@ -446,7 +446,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(652, 487);
+            this.ClientSize = new System.Drawing.Size(669, 503);
             this.Controls.Add(this.buyDataGridView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);

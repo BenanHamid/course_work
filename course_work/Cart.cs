@@ -23,26 +23,20 @@ namespace course_work
             InitializeComponent();
         }
 
-        // Зареждане на формата
+        // Зареждане на формата: Тук са методите, които реално се използват във формата
         private void Cart_Load(object sender, EventArgs e)
         {
             LoadProducts();
             ForbidEmptyBottomLine();
             CenterLabels();
+            PromotionCalculate();
+            FormatCurrencyCells();
         }
 
         // Зареждане на DGV
         public void LoadProducts()
         {
             buyDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
-        }
-
-        // Loading bar
-        private void button1_Click(object sender, EventArgs e)
-        {
-            progressBar1.Style = ProgressBarStyle.Marquee;
-            progressBar1.MarqueeAnimationSpeed = 30;
-            progressBar1.Visible = true;
         }
 
         // Забраняване на поява на празен ред, който потребителя може да бута в дъното на DGV
@@ -56,6 +50,31 @@ namespace course_work
         {
             buyDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             buyDataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        // Продуктите на промоция трябва да са с 10% остъпка
+        public void PromotionCalculate()
+        {
+            // Отстъпка = 10% от цената
+            for (int i = 0; i < buyDataGridView.Rows.Count; ++i)
+            {
+                if(Convert.ToInt32(buyDataGridView.Rows[i].Cells[3].Value) > 0 )
+                    buyDataGridView.Rows[i].Cells[4].Value = (0.90 * Convert.ToDouble(buyDataGridView.Rows[i].Cells[4].Value));
+            }
+        }
+
+        // Форматиране на колоните, където има цени да показват "00,00 лв" формат
+        public void FormatCurrencyCells()
+        {
+            buyDataGridView.Columns[4].DefaultCellStyle.Format = "c";
+        }
+
+        // Loading bar
+        private void button1_Click(object sender, EventArgs e)
+        {
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.MarqueeAnimationSpeed = 30;
+            progressBar1.Visible = true;
         }
 
         private void label5_Click(object sender, EventArgs e)
