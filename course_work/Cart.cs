@@ -12,9 +12,29 @@ namespace course_work
 {
     public partial class Cart : Form
     {
+
+        // Пътища към файловете с бази данни
+        string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
+        string filePathUsers = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
+
         public Cart()
         {
             InitializeComponent();
+            LoadProducts();
+        }
+
+        public void LoadProducts()
+        {
+
+            productsDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
+        }
+
+        // Loading bar
+        private void button1_Click(object sender, EventArgs e)
+        {
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.MarqueeAnimationSpeed = 30;
+            progressBar1.Visible = true;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -47,13 +67,14 @@ namespace course_work
 
         }
 
-        System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
-
-        private void button1_Click(object sender, EventArgs e)
+        private void productsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            progressBar1.Style = ProgressBarStyle.Marquee;
-            progressBar1.MarqueeAnimationSpeed = 30;
-            progressBar1.Visible = true;
+
+        }
+
+        private void productsDataGridView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
