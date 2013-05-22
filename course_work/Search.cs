@@ -44,7 +44,7 @@ namespace course_work
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (row.Cells[1].Value.ToString().Equals(searchValue) || row.Cells[2].Value.ToString().Equals(searchValue)
-                        || row.Cells[3].Value.ToString().Equals(searchValue))
+                        || row.Cells[4].Value.ToString().Equals(searchValue))
                     {
                         var item = row.DataBoundItem as Products;
                         results.Add(item);

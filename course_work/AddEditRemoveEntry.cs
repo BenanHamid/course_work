@@ -34,20 +34,13 @@ namespace course_work
         }
 
         //validator za kletkite proverqva dali ima ne6to v tqh i ne te puska napred ako ne go izpulni6
-        /*public void Validator()
+        public void Validator()
         {
               //this.dataGridView1.CellValidating += new DataGridViewCellValidatingEventHandler(dataGridView1_CellValidating);
-              
-            /*var results = new List<Products>();
-            int flag = 1;
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Equals((typeof)int))
-                    { }
-                }
-        }*/
-        
-     
+            
+        }
+
+   
         
         // Центриране на labels
         public void CenterLabels()
