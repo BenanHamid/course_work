@@ -13,11 +13,9 @@ namespace course_work
 {
     public partial class Cart : Form
     {
-
         // Пътища към файловете с бази данни
         string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "products_db.sql");
         string filePathOrders = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "orders_db.sql");
-      
 
         // Инициализация
         public Cart()
@@ -80,7 +78,7 @@ namespace course_work
             return userAcceptTOS;
         }
 
-        // Save / Loading bar
+        // Изпращане на поръчка
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -134,6 +132,7 @@ namespace course_work
                     MessageBox.Show("Поръчката ви беше изпратена успешно!");
                 }
             }
+
             catch
             {
                 CheckUserAcceptTOS();
@@ -141,10 +140,15 @@ namespace course_work
                 MessageBox.Show("Неуспешен запис на данните");
             }
 
+            // Анимация за зареждане. Не прави нищо, само краси
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 30;
             progressBar1.Visible = true;
         }
+
+        //****************************************************************************************************//
+        //                                          ПРАЗНИ МЕТОДИ                                             //
+        //****************************************************************************************************//
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -155,7 +159,6 @@ namespace course_work
         {
 
         }
-
 
         private void label7_Click(object sender, EventArgs e)
         {

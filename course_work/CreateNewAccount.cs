@@ -67,6 +67,7 @@ namespace course_work
             result = shaM.ComputeHash(data);
         }
 
+        // SHA-512 v3
         public static string GetSHA512(string path)
         {
             byte[] HashValue, MessageBytes = File.ReadAllBytes(path);
@@ -80,6 +81,10 @@ namespace course_work
             }
             return strHex;
         }
+
+        //****************************************************************************************************//
+        //                                          ПРАЗНИ МЕТОДИ                                             //
+        //****************************************************************************************************//
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {

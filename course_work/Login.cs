@@ -133,12 +133,18 @@ namespace course_work
         //}
 
         // Бутон "Направи нов акаунт"
+
+        // Бутон за създаване на нов акаунт. Отваря CreateNewAccount.cs
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CreateNewAccount create = new CreateNewAccount();
             create.ShowDialog(this);
         }
-        
+
+        //****************************************************************************************************//
+        //                                          ПРАЗНИ МЕТОДИ                                             //
+        //****************************************************************************************************//
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 

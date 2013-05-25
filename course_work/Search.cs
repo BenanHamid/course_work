@@ -19,24 +19,21 @@ namespace course_work
             dataGridView1.DataSource = productsBindingSource;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // Методи, които се зареждат
         private void Search_Load(object sender, EventArgs e)
         {
             CenterLabels();
             NotSelectable();
         }
 
+        // Центриране на label-ите
         public void CenterLabels()
         {
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
-        //Метод с който търся
+        // Същинският метод за търсене
         public void SearchMe()
         {
             var results = new List<Products>();
@@ -76,6 +73,22 @@ namespace course_work
                 column.ReadOnly = true;
         }
 
+        //Бутон за изчистване
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = productsBindingSource;
+            textBox1.Text = "";
+        }
+
+        //****************************************************************************************************//
+        //                                          ПРАЗНИ МЕТОДИ                                             //
+        //****************************************************************************************************//
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -92,12 +105,6 @@ namespace course_work
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-        //Бутонз за изчистване
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = productsBindingSource;
-            textBox1.Text = "";
         }
     }
 }

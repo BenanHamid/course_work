@@ -39,9 +39,7 @@ namespace course_work
               //this.dataGridView1.CellValidating += new DataGridViewCellValidatingEventHandler(dataGridView1_CellValidating);
             
         }
-
-   
-        
+       
         // Центриране на labels
         public void CenterLabels()
         {
@@ -78,6 +76,7 @@ namespace course_work
         //****************************************************************************************************//
         //                                          ПРАЗНИ МЕТОДИ                                             //
         //****************************************************************************************************//
+
         private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
         {
 

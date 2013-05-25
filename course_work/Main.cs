@@ -260,6 +260,30 @@ namespace course_work
             }
         }
 
+        // File > Save: Записване на файл-а (това реално е същият метод от Edit.cs)
+        private void записToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TextWriter tw = new StreamWriter(filePath);
+                for (int x = 0; x < productsDataGridView.Rows.Count - 1; x++)
+                {
+                    for (int y = 0; y < productsDataGridView.Columns.Count; y++)
+                    {
+                        tw.Write(productsDataGridView.Rows[x].Cells[y].Value);
+                        tw.Write('\t');
+                    }
+                    tw.WriteLine();
+                }
+                tw.Close();
+                MessageBox.Show("Успешен запис на данните");
+            }
+            catch
+            {
+                MessageBox.Show("Неуспешен запис на данните");
+            }
+        }
+
         // File > Exit: Затваряне на програмата при клик на "Изход"
         private void затвориToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -311,7 +335,7 @@ namespace course_work
             cart.ShowDialog(this);
         }
 
-        // EXPERIMENTAL
+        // EXPERIMENTAL: Добавяне чрез клик от DGV към кошница
         //protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         //{
         //    if (e.CommandName == "AddToCart")
@@ -323,20 +347,34 @@ namespace course_work
         //        // Retrieve the row that contains the button 
         //        // from the Rows collection.
         //        GridViewRow row = GridView1.Rows[index];
-
         //        // Add code here to add the item to the shopping cart.
         //    }
-
         //}
 
-        private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
+        // TO DO: Сортиране
+        private void низходящРедToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            // productsDataGridView.Columns[0].Name = "First";
+            // productsDataGridView.Columns[1].Name = "Last";
+
+            productsDataGridView.Sort(productsDataGridView.Columns[1], ListSortDirection.Ascending);
+            //productsDataGridView.Sort(name, ListSortDirection.Ascending);
+            //MessageBox.Show(productsDataGridView.Columns[1].Name);
+            //productsDataGridView.Sort( new RowComparer( SortOrder.Ascending ) );
+            //productsDataGridView.Sort = Sort.Programmatically;
+            //this.productsDataGridView.Columns["dataGridViewTextBoxColumn1"].SortMode = DataGridViewColumnSortMode.Programmatic;
+            // productsDataGridView.Sort(productsDataGridView.Columns[1], ListSortDirection.Ascending);
+
         }
 
         //****************************************************************************************************//
         //                                          ПРАЗНИ МЕТОДИ                                             //
         //****************************************************************************************************//
+
+        private void свържетеСеСНасToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void productsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -407,44 +445,5 @@ namespace course_work
         {
 
         }
-
-        private void низходящРедToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // productsDataGridView.Columns[0].Name = "First";
-            // productsDataGridView.Columns[1].Name = "Last";
-
-            productsDataGridView.Sort(productsDataGridView.Columns[1], ListSortDirection.Ascending);
-            //productsDataGridView.Sort(name, ListSortDirection.Ascending);
-            //MessageBox.Show(productsDataGridView.Columns[1].Name);
-            //productsDataGridView.Sort( new RowComparer( SortOrder.Ascending ) );
-           //productsDataGridView.Sort = Sort.Programmatically;
-            //this.productsDataGridView.Columns["dataGridViewTextBoxColumn1"].SortMode = DataGridViewColumnSortMode.Programmatic;
-           // productsDataGridView.Sort(productsDataGridView.Columns[1], ListSortDirection.Ascending);
-           
-        }
-
-        private void записToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                TextWriter tw = new StreamWriter(filePath);
-                for (int x = 0; x < productsDataGridView.Rows.Count - 1; x++)
-                {
-                    for (int y = 0; y < productsDataGridView.Columns.Count; y++)
-                    {
-                        tw.Write(productsDataGridView.Rows[x].Cells[y].Value);
-                        tw.Write('\t');
-                    }
-                    tw.WriteLine();
-                }
-                tw.Close();
-                MessageBox.Show("Успешен запис на данните");
-            }
-            catch
-            {
-                MessageBox.Show("Неуспешен запис на данните");
-            }
-        }
-        
     }
 }
