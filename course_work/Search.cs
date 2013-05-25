@@ -27,12 +27,15 @@ namespace course_work
         private void Search_Load(object sender, EventArgs e)
         {
             CenterLabels();
+            NotSelectable();
         }
+
         public void CenterLabels()
         {
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
         //Метод с който търся
         public void SearchMe()
         {
@@ -66,9 +69,12 @@ namespace course_work
             dataGridView1.DataSource = results;
         }
 
-
-
-        
+        // Прави клетките Read-Only
+        public void NotSelectable()
+        {
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+                column.ReadOnly = true;
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

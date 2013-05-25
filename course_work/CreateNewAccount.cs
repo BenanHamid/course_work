@@ -14,7 +14,6 @@ namespace course_work
 {
     public partial class CreateNewAccount : Form
     {
-
         // Само проверява за грешки
         ErrorProvider err = new ErrorProvider();
 
@@ -28,10 +27,9 @@ namespace course_work
 
         }
 
+        // Създаване на нов акаунт
         private void button1_Click(object sender, EventArgs e)
         {
-            // Започване на четене
-
             //if (!File.Exists("account_db.sql"))
             //{
             string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
@@ -42,8 +40,6 @@ namespace course_work
             //tw.Dispose();
             FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
-            string hhh = "test";
-  
             sw.WriteLine(textBox1.Text + "\t" + textBox2.Text);
             sw.Dispose();
             this.Close();
@@ -62,6 +58,7 @@ namespace course_work
             MessageBox.Show(encryptedPassword);
         }
 
+        // Крипитане със SHA-512 v2
         public void Encryption2()
         {
             byte[] data = new byte[2];
