@@ -7,8 +7,6 @@ using System.ComponentModel;
 
 namespace course_work
 {
-    [Serializable]
-
     public class Products
     {
         // Това тук отначало са само get/set-овете
