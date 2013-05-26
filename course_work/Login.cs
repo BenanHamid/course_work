@@ -63,7 +63,12 @@ namespace course_work
                 string getPass = user.Substring(user.IndexOf(tab) + 1, user.Length - user.IndexOf(tab) - 1);
                 //MessageBox.Show(getPass);
 
-                if (getPass == textBox2.Text && getUser == textBox1.Text)
+                // Тук криптираме "чистата" парола, която е въведена в поле "Password" във SHA-512
+                string passwordHolder = textBox2.Text; // Налага се да го помним в допълнителна променлива, защото иначе постоянно модифицираме съдържанито на password box-а ("дългата" хеширана парола се появява в password box-a)
+                passwordHolder = EncryptSHA512(passwordHolder);
+
+                // Проверяваме дали имаме съвпадение на въведената и хеширана току-що парола и потребител със потребител и хеш от accounts_db.sql
+                if (getPass == passwordHolder && getUser == textBox1.Text)
                 {
                     flag = 0;
                     err.SetError(textBox1, ""); // Чисти error-а
@@ -100,27 +105,14 @@ namespace course_work
             Settings.Default.Save();
         }
 
-        //// Криптиране със SHA-512
-        public static string GetCrypt(string text)
-        {
-            string hash = "";
-            SHA512 alg = SHA512.Create();
-            byte[] result = alg.ComputeHash(Encoding.UTF8.GetBytes(text));
-            hash = Encoding.UTF8.GetString(result);
-            return hash;
-        }
-
-        // MD5
+        // NOT USED: MD5
         //public static string MD5Hash(string text)
         //{
         //    MD5 md5 = new MD5CryptoServiceProvider();
-
         //    //compute hash from the bytes of text
         //    md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
-
         //    //get hash result after compute it
         //    byte[] result = md5.Hash;
-
         //    StringBuilder strBuilder = new StringBuilder();
         //    for (int i = 0; i < result.Length; i++)
         //    {
@@ -132,13 +124,29 @@ namespace course_work
         //    return strBuilder.ToString();
         //}
 
-        // Бутон "Направи нов акаунт"
+        // NOT USED: Криптиране със SHA-512
+        public static string GetCrypt(string text)
+        {
+            string hash = "";
+            SHA512 alg = SHA512.Create();
+            byte[] result = alg.ComputeHash(Encoding.UTF8.GetBytes(text));
+            hash = Encoding.UTF8.GetString(result);
+            return hash;
+        }
 
         // Бутон за създаване на нов акаунт. Отваря CreateNewAccount.cs
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CreateNewAccount create = new CreateNewAccount();
             create.ShowDialog(this);
+        }
+
+        // Криптиране на string със алгоритъм SHA-512 bit
+        public static string EncryptSHA512(string unencryptedString)
+        {
+            return BitConverter.ToString(new SHA512CryptoServiceProvider().
+                                ComputeHash(Encoding.Default.GetBytes(unencryptedString))).
+                                Replace("-", String.Empty).ToUpper();
         }
 
         //****************************************************************************************************//

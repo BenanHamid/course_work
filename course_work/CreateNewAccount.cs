@@ -49,7 +49,7 @@ namespace course_work
             //}
         }
 
-        // Криптиране със SHA-512
+        // NOT USED: Криптиране със SHA-512
         public void Encryption1()
         {
             string encryptedPassword = textBox2.Text;
@@ -61,7 +61,7 @@ namespace course_work
             MessageBox.Show(encryptedPassword);
         }
 
-        // Крипитане със SHA-512 v2
+        // NOT USED:  Крипитане със SHA-512 v2
         public void Encryption2()
         {
             byte[] data = new byte[2];
@@ -70,7 +70,7 @@ namespace course_work
             result = shaM.ComputeHash(data);
         }
 
-        // SHA-512 v3
+        // NOT USED:  SHA-512 v3
         public static string GetSHA512(string path)
         {
             byte[] HashValue, MessageBytes = File.ReadAllBytes(path);
@@ -89,8 +89,8 @@ namespace course_work
         public static string EncryptSHA512(string unencryptedString)
         {
             return BitConverter.ToString(new SHA512CryptoServiceProvider().
-                                         ComputeHash(Encoding.Default.GetBytes(unencryptedString))).
-                                         Replace("-", String.Empty).ToUpper();
+                                ComputeHash(Encoding.Default.GetBytes(unencryptedString))).
+                                Replace("-", String.Empty).ToUpper();
         }
 
         //****************************************************************************************************//
