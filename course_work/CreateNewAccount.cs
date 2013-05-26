@@ -43,8 +43,9 @@ namespace course_work
             FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
             textBox2.Text = EncryptSHA512(textBox2.Text); // Рекурсивно криптиране с SHA-512, муафака
-            sw.WriteLine(textBox1.Text + "\t" + textBox2.Text);
+            sw.WriteLine(textBox1.Text + "\t" + "\t" + textBox2.Text);
             sw.Dispose();
+            MessageBox.Show("Потребител " + textBox1.Text + " беше успешно създаден!", "Успешна регистрация!");
             this.Close();
             //}
         }

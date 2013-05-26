@@ -53,15 +53,14 @@ namespace course_work
             StreamReader tr = new StreamReader(filePath);
      
             // Това е същинската проверка дали има валидна комбинация от потребител и парола
-            int flag = 0;
+            int flag = 0; // Флаг за съвпадение на въведени user/pass и намерени в DB user/pass
             while (tr.Peek() >= 0)
             {
+                // Четене на потребител и хеширана парола от accounts_db.sql
                 string tab = "\t";
                 string user = tr.ReadLine();
                 string getUser = user.Substring(0, user.IndexOf(tab));
-                //MessageBox.Show(getUser);
-                string getPass = user.Substring(user.IndexOf(tab) + 1, user.Length - user.IndexOf(tab) - 1);
-                //MessageBox.Show(getPass);
+                string getPass = user.Substring(user.IndexOf(tab) + 2, user.Length - user.IndexOf(tab) - 2);
 
                 // Тук криптираме "чистата" парола, която е въведена в поле "Password" във SHA-512
                 string passwordHolder = textBox2.Text; // Налага се да го помним в допълнителна променлива, защото иначе постоянно модифицираме съдържанито на password box-а ("дългата" хеширана парола се появява в password box-a)
@@ -79,7 +78,6 @@ namespace course_work
                     forma.ShowDialog(this);
                     this.Close();
                 }
-
             }
 
             // Грешна комбинация потребител и парола
