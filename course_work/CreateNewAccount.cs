@@ -17,11 +17,13 @@ namespace course_work
         // Само проверява за грешки
         ErrorProvider err = new ErrorProvider();
 
+        // Инициализация - Файл
         public CreateNewAccount()
         {
             InitializeComponent();
         }
 
+        // Инициализация - GUI
         private void CreateForm_Load(object sender, EventArgs e)
         {
 
@@ -40,11 +42,11 @@ namespace course_work
             //tw.Dispose();
             FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
+            textBox2.Text = EncryptSHA512(textBox2.Text); // Рекурсивно криптиране с SHA-512, муафака
             sw.WriteLine(textBox1.Text + "\t" + textBox2.Text);
             sw.Dispose();
             this.Close();
             //}
-
         }
 
         // Криптиране със SHA-512
@@ -52,8 +54,9 @@ namespace course_work
         {
             string encryptedPassword = textBox2.Text;
             SHA512 alg = SHA512.Create();
-            byte[] result = alg.ComputeHash(Encoding.UTF8.GetBytes(textBox2.Text));
-            encryptedPassword = Encoding.Unicode.GetString(result);
+            //encryptedPassword = alg.ComputeHash();
+            //byte[] result = alg.ComputeHash(Encoding.UTF8.GetBytes(textBox2.Text));
+            //encryptedPassword = Encoding.Unicode.GetString(result);
             textBox2.Text = encryptedPassword;
             MessageBox.Show(encryptedPassword);
         }
@@ -80,6 +83,14 @@ namespace course_work
                 strHex += String.Format("{0:x2}", b);
             }
             return strHex;
+        }
+
+        // Криптиране на string със алгоритъм SHA-512 bit
+        public static string EncryptSHA512(string unencryptedString)
+        {
+            return BitConverter.ToString(new SHA512CryptoServiceProvider().
+                                         ComputeHash(Encoding.Default.GetBytes(unencryptedString))).
+                                         Replace("-", String.Empty).ToUpper();
         }
 
         //****************************************************************************************************//
