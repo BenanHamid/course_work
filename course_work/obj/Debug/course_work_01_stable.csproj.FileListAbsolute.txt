@@ -1,3 +1,0 @@
-C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\bin\Debug\course_work.exe.config
-C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Debug\course_work.exe
-C:\Users\DEV-9U5P-J3G2-X4L56\Documents\Visual Studio 2012\Projects\course_work\course_work\obj\Debug\course_work.pdb

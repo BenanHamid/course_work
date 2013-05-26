@@ -4,3 +4,5 @@
 *.pdb
 *.suo
 /*/obj/
+/*/obj/Debug/
+/*/obj/Release/
