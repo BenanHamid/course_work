@@ -4,3 +4,5 @@
 *.pdb
 *.suo
 *\course_work\bin
+Thumbs.db
+obj/
