@@ -87,9 +87,7 @@ namespace course_work
                 // Проверяваме дали потребителя е приел условията за използване
                 CheckUserAcceptTOS();
                 if (CheckUserAcceptTOS() == false)
-                {
                     MessageBox.Show("Не сте приели условията за обслужване!");
-                }
 
                 // Запазваме данните на потребителя
                 string name = textBox1.Text;

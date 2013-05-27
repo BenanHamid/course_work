@@ -16,6 +16,7 @@ namespace course_work
     {
         // Само проверява за грешки
         ErrorProvider err = new ErrorProvider();
+        string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql"); // Взима ДИНАМИЧНО директорията на файла, т.е. е relative path, което е универсално за всяка машина, на която се изпълнява програмата
 
         // Инициализация - Файл
         public CreateNewAccount()
@@ -29,25 +30,87 @@ namespace course_work
 
         }
 
-        // Създаване на нов акаунт
+        // Бутон "Създаване": Създаване на нов акаунт - Тук е целият алгоритъм и проверки за създаването на нов акаунт
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (!File.Exists("account_db.sql"))
-            //{
+            // Първо проверяваме дали файла е празен - няма смисъл празен файл да се проверява за потребителите...
+            CheckFileEmpty();
+
+            // Ако файлът е празен
+            if (CheckFileEmpty() == true)
+                CreateNewUser();
+
+            // Ако файлът не е празен
+            else
+            {
+                // Проверяваме дали потребителя съществува във файла
+                CheckUserExists();
+
+                // Ако потребителя съществува: ГРЕШКА!
+                if (CheckUserExists() == true)
+                {
+                    err.SetError(textBox1, ""); // Чисти error-а
+                    err.SetError(textBox2, "");
+                    MessageBox.Show("Потребителят вече съществува!", "Неуспешна регистрация");
+                }
+
+                // Ако потребителя не съществува: Създаваме го!
+                else
+                    CreateNewUser();
+            }
+        }
+
+        // Връща дали файла е празен
+        public bool CheckFileEmpty()
+        {
+            bool fileEmpty = false;
+            if (new FileInfo(filePath).Length == 0)
+                fileEmpty = true;
+            return fileEmpty;
+        }
+
+        // Връща дали вече има такъв потребител
+        public bool CheckUserExists()
+        {
+            bool UserExists = false;
             string filePath = string.Format("{0}/databases/{1}", AppDomain.CurrentDomain.BaseDirectory, "accounts_db.sql");
-            //System.IO.TextWriter tw = new System.IO.StreamWriter("accounts_db.sql");
-            //tw.WriteLine(textBox1.Text + "\t" + textBox2.Text);
-            //tw.WriteLine();
-            //tw.Close();
-            //tw.Dispose();
+            StreamReader sr = new StreamReader(filePath);
+
+            // Търсим дали имаме такъв потребител в accounts_db.sql
+            while (sr.Peek() >= 0)
+            {
+                string tab = "\t";
+                string user = sr.ReadLine();
+                string getUser = user.Substring(0, user.IndexOf(tab));
+
+                // Съществува вече потребител с такова име
+                if (getUser == textBox1.Text)
+                {
+                    sr.Dispose();
+                    this.Close();
+                    UserExists = true;
+                    break;
+                }
+                else
+                    // Стигнали сме до края на файла и не сме намерили такъв потребител
+                    UserExists = false;
+            }
+            sr.Dispose(); // Освобождаваме четеца, а и самият файл (за да могат и други процеси и методи да го използват :))
+            return UserExists;
+        }
+
+        // Метод, който създава нов потребител
+        private void CreateNewUser()
+        {
+            // Писане с файлов поток
             FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
+            // Създаване на нов акаунт
             textBox2.Text = EncryptSHA512(textBox2.Text); // Рекурсивно криптиране с SHA-512, муафака
             sw.WriteLine(textBox1.Text + "\t" + "\t" + textBox2.Text);
             sw.Dispose();
             MessageBox.Show("Потребител " + textBox1.Text + " беше успешно създаден!", "Успешна регистрация!");
             this.Close();
-            //}
         }
 
         // NOT USED: Криптиране със SHA-512
