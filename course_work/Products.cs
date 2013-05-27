@@ -73,7 +73,7 @@ namespace course_work
                     Brand = columns[1],
                     Category = columns[2],
                     Description = columns[3],
-                    Promotion = Convert.ToBoolean(columns[4]),
+                    Promotion = Convert.ToBoolean(Convert.ToInt32(columns[4])),
                     Quantity = Convert.ToInt32(columns[5]),
                     Price = Convert.ToDouble(columns[6])
                     //Promotion = columns[4] == "1",       // ТОВА Е КАК ДА СЕ НАПРАВИ ЗА BOOL? ПП: Не, няма нуждa! ^^
