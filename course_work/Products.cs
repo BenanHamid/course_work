@@ -17,11 +17,11 @@ namespace course_work
             set { quantity = value; }
         }
 
-        private int promotions;
-        public int Promotions
+        private bool promotion;
+        public bool Promotion
         {
-            get { return promotions; }
-            set { promotions = value; }
+            get { return promotion; }
+            set { promotion = value; }
         }
 
         private string brand;
@@ -73,10 +73,10 @@ namespace course_work
                     Brand = columns[1],
                     Category = columns[2],
                     Description = columns[3],
-                    Promotions = Convert.ToInt32(columns[4]),
+                    Promotion = Convert.ToBoolean(columns[4]),
                     Quantity = Convert.ToInt32(columns[5]),
                     Price = Convert.ToDouble(columns[6])
-                    //Promotions = columns[4] == "1",       // ТОВА Е КАК ДА СЕ НАПРАВИ ЗА BOOL? ПП: Не, няма нуждa! ^^
+                    //Promotion = columns[4] == "1",       // ТОВА Е КАК ДА СЕ НАПРАВИ ЗА BOOL? ПП: Не, няма нуждa! ^^
                     //Age = Convert.ToInt32(columns[6]]),
                     //Balance = Convert.ToDecimal(columns[6])
                 });

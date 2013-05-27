@@ -217,7 +217,7 @@
             // 
             // promotionsDataGridViewTextBoxColumn
             // 
-            this.promotionsDataGridViewTextBoxColumn.DataPropertyName = "Promotions";
+            this.promotionsDataGridViewTextBoxColumn.DataPropertyName = "Promotion";
             this.promotionsDataGridViewTextBoxColumn.HeaderText = "Промоция";
             this.promotionsDataGridViewTextBoxColumn.Name = "promotionsDataGridViewTextBoxColumn";
             this.promotionsDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;

@@ -416,7 +416,7 @@
             // 
             // promotionsDataGridViewTextBoxColumn
             // 
-            this.promotionsDataGridViewTextBoxColumn.DataPropertyName = "Promotions";
+            this.promotionsDataGridViewTextBoxColumn.DataPropertyName = "Promotion";
             this.promotionsDataGridViewTextBoxColumn.Frozen = true;
             this.promotionsDataGridViewTextBoxColumn.HeaderText = "Промоция";
             this.promotionsDataGridViewTextBoxColumn.Name = "promotionsDataGridViewTextBoxColumn";

@@ -153,7 +153,7 @@
             // 
             // dataGridViewCheckBoxColumn1
             // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Promotions";
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Promotion";
             this.dataGridViewCheckBoxColumn1.HeaderText = "Промоция";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;

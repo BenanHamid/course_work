@@ -151,7 +151,7 @@ namespace course_work
             productsDataGridView.DataSource = Products.LoadUserListFromFile(filePath);
         }
 
-        // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView na promotions
+        // Взима стойностите, прочетени от файла (от Products.cs) и ги зарежда в DataGridView na promotion
         public void LoadPromotions()
         {
             promotionsDataGridView.DataSource = Promotions.LoadUserListFromFile(filePath);

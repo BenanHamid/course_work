@@ -113,6 +113,14 @@ namespace course_work
             this.Close();
         }
 
+        // Криптиране на string със алгоритъм SHA-512 bit
+        public static string EncryptSHA512(string unencryptedString)
+        {
+            return BitConverter.ToString(new SHA512CryptoServiceProvider().
+                                ComputeHash(Encoding.Default.GetBytes(unencryptedString))).
+                                Replace("-", String.Empty).ToUpper();
+        }
+
         // NOT USED: Криптиране със SHA-512
         public void Encryption1()
         {
@@ -147,14 +155,6 @@ namespace course_work
                 strHex += String.Format("{0:x2}", b);
             }
             return strHex;
-        }
-
-        // Криптиране на string със алгоритъм SHA-512 bit
-        public static string EncryptSHA512(string unencryptedString)
-        {
-            return BitConverter.ToString(new SHA512CryptoServiceProvider().
-                                ComputeHash(Encoding.Default.GetBytes(unencryptedString))).
-                                Replace("-", String.Empty).ToUpper();
         }
 
         //****************************************************************************************************//

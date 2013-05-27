@@ -103,6 +103,21 @@ namespace course_work
             Settings.Default.Save();
         }
 
+        // Бутон за създаване на нов акаунт. Отваря CreateNewAccount.cs
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateNewAccount create = new CreateNewAccount();
+            create.ShowDialog(this);
+        }
+
+        // Криптиране на string със алгоритъм SHA-512 bit
+        public static string EncryptSHA512(string unencryptedString)
+        {
+            return BitConverter.ToString(new SHA512CryptoServiceProvider().
+                                ComputeHash(Encoding.Default.GetBytes(unencryptedString))).
+                                Replace("-", String.Empty).ToUpper();
+        }
+
         // NOT USED: MD5
         //public static string MD5Hash(string text)
         //{
@@ -130,21 +145,6 @@ namespace course_work
             byte[] result = alg.ComputeHash(Encoding.UTF8.GetBytes(text));
             hash = Encoding.UTF8.GetString(result);
             return hash;
-        }
-
-        // Бутон за създаване на нов акаунт. Отваря CreateNewAccount.cs
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            CreateNewAccount create = new CreateNewAccount();
-            create.ShowDialog(this);
-        }
-
-        // Криптиране на string със алгоритъм SHA-512 bit
-        public static string EncryptSHA512(string unencryptedString)
-        {
-            return BitConverter.ToString(new SHA512CryptoServiceProvider().
-                                ComputeHash(Encoding.Default.GetBytes(unencryptedString))).
-                                Replace("-", String.Empty).ToUpper();
         }
 
         //****************************************************************************************************//
